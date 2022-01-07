@@ -10,7 +10,7 @@ const Hero = () => {
             <Header />
             <div className={styles.description}>
                 <div className={styles.description__leftside}>
-                <h3 className={styles.description__header}>REAL ITALIAN PIZZA</h3>
+                <h3 className={styles.description__header}>REAL ITALIAN PIZZAA</h3>
                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
                     Aliquam nisi sapien, laoreet et tellus sed, dictum dignissim 
                     lectus. Nulla a nulla tortor. Aliquam et risus nec ante pulvinar 
