@@ -1,0 +1,49 @@
+.heroContainer {
+    height: 90vh;
+    background-image: radial-gradient(rgb(248, 37, 37), rgb(226, 17, 51));
+    position: relative;
+}
+
+.heroImage{
+    position: absolute;
+    transform: scale(1);
+    top: 25%;
+    left: 65%;
+}
+
+.description {
+    width:50%;
+}
+
+.description__header {
+    font-style: italic;
+    margin-bottom: 3rem;
+    letter-spacing: .5rem;
+    font-size: 4.5rem;
+}
+
+.description__leftside {
+    margin-top: 8rem;
+    padding: 10rem;
+    text-align: center;
+    color: white;
+    font-size: 2.2rem;
+    
+}
+
+
+.orderButton {
+    margin-top: 5rem;
+    padding: 2rem;
+    font-size: 2.8rem;
+    font-weight: 700;
+    border: none;
+    color: black;
+    background-color: white;
+    border-radius: 5rem;
+    
+    
+}
+
+
+
