@@ -23,7 +23,8 @@
 
 .restaurantName {
    color: white;
-   font-size: 4.5rem;
+   font-size: 5rem;
    font-weight: 900;
+   letter-spacing: .6rem;
 
 }
