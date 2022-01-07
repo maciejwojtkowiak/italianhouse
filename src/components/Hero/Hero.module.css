@@ -1,0 +1,39 @@
+.heroContainer {
+    height: 90vh;
+    background-color: rgb(209, 49, 49);
+}
+
+.header {
+    width: 100%;
+    padding: 2rem;
+}
+
+.navbar {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.headerNavList {
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+    margin-right: 5rem;
+    flex-direction: row;
+    list-style: none;
+    margin-left: auto;
+}
+
+.headerNavList > li{
+    margin-right: 6rem;
+    font-size: 3rem;
+    color: white;
+}
+
+.restaurantName {
+   color: white;
+   font-size: 4.5rem;
+   font-weight: 900;
+
+}
