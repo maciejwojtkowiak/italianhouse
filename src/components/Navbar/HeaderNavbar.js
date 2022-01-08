@@ -1,12 +1,14 @@
 import styles from './HeaderNavbar.module.css'
+import CartButton from '../Cart/CartButton'
+
 
 
 const HeaderNavbar = () => {
     return (
-        <navbar className={styles.navbar}>
+        <nav className={styles.navbar}>
             <div className={styles.restaurantName}>Italian House</div>
             <div>
-                <ul class={styles.headerNavList}>
+                <ul className={styles.headerNavList}>
                     <li>
                         Home
                     </li>
@@ -16,9 +18,13 @@ const HeaderNavbar = () => {
                     <li>
                         Contact
                     </li>
+                    <li>
+                         <div className={styles.cart}><CartButton /></div>
+                    </li>
+                   
                 </ul>
             </div>
-        </navbar>
+        </nav>
     )
 }
 

@@ -9,3 +9,10 @@
     gap: 3rem;
     padding: 5rem;
 }
+
+.meal-item {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}

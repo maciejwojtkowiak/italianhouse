@@ -1,5 +1,6 @@
 import Card from "../UI/Card"
 import styles from './Meals.module.css'
+import { useSelector } from 'react-redux'
 
 const Meals = () => {
 
@@ -23,16 +24,22 @@ const Meals = () => {
         }
     ]
 
+    const pizza = useSelector(state => state.cart.pizza)
+
 
     return (
         <div className={styles.meals}>
             {DUMMY_MEALS.map(meal => 
-            <Card>
-                <div>
+            <Card key={meal.id}>
+                <div className={styles['meal-item']}>
                     <h3>{meal.name}</h3>
                     <p>{meal.ingredients}</p>
                     <p>{meal.price}$</p>
+                    <form>
+                        <button type="submit">Order</button>
+                    </form>
                 </div>
+               
             </Card>)}
         </div>
         

@@ -1,0 +1,20 @@
+.cartButton {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+}
+
+.cartAmount {
+    position: absolute;
+    top: 0;
+    right: 0;
+    background: white;
+    padding: .1rem .5rem;
+    border-radius: 100%;
+    border: 2px solid rgb(226, 17, 51);
+    font-weight: 700;
+}
