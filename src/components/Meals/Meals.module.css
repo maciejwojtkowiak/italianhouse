@@ -1,0 +1,11 @@
+.meals {
+    display: grid;
+    place-items: center;
+    min-height: 50vh;
+    max-height: 80vh;
+    overflow-y: scroll;
+    grid-template-columns: 1fr 1fr 1fr ;
+    grid-auto-rows: 1fr;
+    gap: 3rem;
+    padding: 5rem;
+}
