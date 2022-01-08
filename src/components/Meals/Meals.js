@@ -6,21 +6,27 @@ import MealsOrder from "./MealsOrder"
 
 const DUMMY_MEALS = [
     {
+        id: 1,
         name: 'Margarita',
         ingredients: 'cheese and tomato sauce',
-        price: 10
+        price: 10,
+        quantity: 1
     },
 
     {
+        id: 2,
         name: 'Funghi',
         ingredients: 'cheese, tomato sauce and champignons',
-        price: 15
+        price: 15,
+        quantity: 1
     },
 
     {
+        id: 3,
         name: 'Vegetarian',
         ingredients: 'cheese, tomato sauce, corn, peppers',
-        price: 13
+        price: 13,
+        quantity: 1
     }
 ]
 
