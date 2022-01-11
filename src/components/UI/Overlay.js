@@ -5,6 +5,7 @@ import { useDispatch } from 'react-redux'
 import { cartActions } from '../../store/cart-slice'
 
 const Overlay = (props) => {
+    // Overlay oddzielnie z oknem koszyka.
     const dispatch = useDispatch()
     const onClickHandler = () => {
         dispatch(cartActions.showCart())

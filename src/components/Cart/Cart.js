@@ -22,7 +22,6 @@ const Cart = () => {
     }
 
     return ReactDOM.createPortal(
-       
             <div className={styles.cart}> 
                 <CartItems />
                 <form onSubmit={onOrderHandler}>
@@ -30,10 +29,9 @@ const Cart = () => {
                 </form>
                 
             </div>,
+            
         
-        
-
-       
+    
         document.getElementById('modal')
     )
 }
