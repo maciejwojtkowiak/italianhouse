@@ -1,0 +1,17 @@
+.cart {
+    position: fixed;
+    width: 50vw;
+    min-height: 70vh;
+    max-height: 70vh;
+    overflow-y: scroll;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgb(255, 255, 255);
+    text-align: right;
+    z-index: 4;
+}
+
+.button {
+    margin: 2rem 2rem;
+}

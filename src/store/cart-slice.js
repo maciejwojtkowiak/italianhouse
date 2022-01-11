@@ -3,6 +3,7 @@ import {createSlice} from '@reduxjs/toolkit'
 const INITIAL_STATE = {
     items: [],
     totalAmount: 0,
+    cartIsShown: false
 }
 
 const cartSlice = createSlice({
@@ -28,6 +29,10 @@ const cartSlice = createSlice({
 
             state.totalAmount++
             
+        },
+
+        showCart(state, action) {
+            state.cartIsShown = !state.cartIsShown
         }
     }
 })
