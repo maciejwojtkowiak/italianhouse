@@ -1,14 +1,32 @@
-import { useSelector } from "react-redux"
 import React from "react"
 import ReactDOM from 'react-dom'
-import { cartActions } from "../../store/cart-slice"
+import styles from './Cart.module.css'
+import Overlay from "../UI/Overlay"
+import CartItems from "./CartItems"
+import { useSelector } from "react-redux"
 
 
 
 const Cart = () => {
-    const cart = useSelector(state => state.cart.items)
+
+    const cartItems = useSelector(state => state.cart.items)
+    const onOrderHandler = () => {
+        fetch('https://italianhouse-1aef0-default-rtdb.europe-west1.firebasedatabase.app/orders.json', {
+            method: 'POST',
+            body: JSON.stringify()
+        })
+    }
+
     return ReactDOM.createPortal(
-        <div> SIEMANO </div>,
+        <Overlay>
+            <div className={styles.cart}> 
+                <CartItems />
+                <button className={styles.button}>Order</button>
+            </div>
+        </Overlay>,
+        
+
+       
         document.getElementById('modal')
     )
 }

@@ -45,10 +45,15 @@ const Meals = () => {
             {DUMMY_MEALS.map(meal => 
             <Card key={meal.id}>
                 <div className={styles['meal-item']}>
-                    <h3>{meal.name}</h3>
-                    <p>{meal.ingredients}</p>
-                    <p>{meal.price}$</p>
-                    <MealsOrder onOrder={onOrder.bind(null, meal)} />
+                    <div className={styles['meal-detail']}>
+                        <h3>{meal.name}</h3>
+                        <p>{meal.ingredients}</p>
+                    </div>
+                    <div className={styles['meal-detail']}>
+                        <p>{meal.price}$</p>
+                        <MealsOrder onOrder={onOrder.bind(null, meal)} />
+                    </div>  
+                    
                 </div>
                
             </Card>)}

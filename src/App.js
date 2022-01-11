@@ -6,14 +6,13 @@ import {useSelector} from 'react-redux'
 import Cart from './components/Cart/Cart';
 function App() {
 
-  const cart = useSelector(state => state.cart)
-  console.log(cart)
+  const isShown = useSelector(state => state.cart.cartIsShown)
 
   return (
     <React.Fragment>
         <Hero />
         <Meals />
-        <Cart />
+        {isShown && <Cart />}
     </React.Fragment>
       
   );
