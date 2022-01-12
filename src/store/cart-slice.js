@@ -10,14 +10,21 @@ const cartSlice = createSlice({
     name: 'cart',
     initialState: INITIAL_STATE,
     reducers: {
-        replaceCart(state,action) {
-            if(action.payload) {
-                state.items.push(action.payload)
-            } else {
-                state.items = []
-            }
-            
+        getCartData(state,action) {
+
+            state.items.push({
+                id: action.payload.id,
+                name: action.payload.name,
+                price: action.payload.price,
+                quantity: action.payload.quantity,
+                totalPrice: action.payload.price * action.payload.quantity,
+            })
         },
+
+        setFetchedTotalAmount(state,action) {
+            state.totalAmount = action.payload
+        },
+
         addItemToCart(state, action) {
             const existingItem = state.items.find(existingItem => existingItem.id === action.payload.id)
             if (!existingItem) {
@@ -25,8 +32,8 @@ const cartSlice = createSlice({
                     id: action.payload.id,
                     name: action.payload.name,
                     price: action.payload.price,
-                    totalPrice: action.payload.price,
-                    quantity: 1
+                    totalPrice: action.payload.totalPrice,
+                    quantity: action.payload.quantity
                 })
             }
 
@@ -35,7 +42,7 @@ const cartSlice = createSlice({
                 existingItem.totalPrice = existingItem.quantity * existingItem.price
             }
 
-            state.totalAmount++
+            ++state.totalAmount
             
         },
 

@@ -3,6 +3,7 @@ import styles from './Meals.module.css'
 import { useSelector, useDispatch } from 'react-redux'
 import { cartActions } from "../../store/cart-slice"
 import MealsOrder from "./MealsOrder"
+import { useEffect } from "react"
 
 const DUMMY_MEALS = [
     {
@@ -32,11 +33,14 @@ const DUMMY_MEALS = [
 
 const Meals = () => {
    const dispatch = useDispatch()
+   const cartItems = useSelector(state => state.cart.items)
+   const totalAmount = useSelector(state => state.cart.totalAmount)
+   console.log(totalAmount)
 
    const onAddToCart = (meal) => {
         fetch('https://italianhouse-1aef0-default-rtdb.europe-west1.firebasedatabase.app/cart.json', {
-            method: 'POST',
-            body: JSON.stringify(meal),
+            method: 'PUT',
+            body: JSON.stringify({cartItems: cartItems, totalAmount: totalAmount}),
             headers: {
                 'content-type': 'application/json'
             }
