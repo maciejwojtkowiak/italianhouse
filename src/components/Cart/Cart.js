@@ -22,13 +22,19 @@ const Cart = () => {
     }
 
     return ReactDOM.createPortal(
-            <div className={styles.cart}> 
-                <CartItems />
-                <form onSubmit={onOrderHandler}>
-                    <button className={styles.button}>Order</button>
-                </form>
-                
-            </div>,
+        <React.Fragment>
+            
+                <div className={styles.cart}> 
+                    <CartItems />
+                    <form onSubmit={onOrderHandler}>
+                        <button className={styles.button}>Order</button>
+                    </form>
+                    
+                </div>
+        
+            
+        </React.Fragment>,
+            
             
         
     
