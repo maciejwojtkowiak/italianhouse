@@ -13,8 +13,11 @@ function App() {
   useEffect(() => {
     fetch('https://italianhouse-1aef0-default-rtdb.europe-west1.firebasedatabase.app/cart.json')
     .then(res => res.json())
-    .then(data => console.log(data))
-  }, [dispatch, cart])
+    .then(data => {
+      const keys = Object.keys(data)
+      keys.forEach(key => dispatch(cartActions.addItemToCart(data[key])))
+    })
+  }, [dispatch])
 
   return (
     <React.Fragment>
