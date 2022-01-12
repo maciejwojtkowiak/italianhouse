@@ -33,7 +33,7 @@ const DUMMY_MEALS = [
 const Meals = () => {
    const dispatch = useDispatch()
 
-   const onOrder = (meal) => {
+   const onAddToCart = (meal) => {
         dispatch(cartActions.addItemToCart(meal))
    }
 
@@ -51,7 +51,7 @@ const Meals = () => {
                     </div>
                     <div className={styles['meal-detail']}>
                         <p>{meal.price}$</p>
-                        <MealsOrder onOrder={onOrder.bind(null, meal)} />
+                        <MealsOrder onAddToCart={onAddToCart.bind(null, meal)} />
                     </div>  
                     
                 </div>
