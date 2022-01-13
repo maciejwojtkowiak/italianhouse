@@ -1,10 +1,15 @@
+import React from 'react'
 import styles from './Tab.module.css'
 
 const Tab = (props) => {
     return (
-        <div className={styles.tab}>
-            ELO
-        </div>
+        <React.Fragment>
+            <div className={styles.tab}>
+                {props.name}
+            </div>
+           
+        </React.Fragment>
+        
     )
 }
 
