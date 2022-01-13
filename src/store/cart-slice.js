@@ -4,7 +4,7 @@ const INITIAL_STATE = {
     items: [],
     totalAmount: 0,
     cartIsShown: false,
-    cartIsFetched: false
+    changed: false,
 }
 
 const cartSlice = createSlice({
@@ -38,16 +38,19 @@ const cartSlice = createSlice({
             }
 
             ++state.totalAmount
+            state.changed = true
             
+        },
+
+
+        removeItemFromCart(state, action) {
+            state.items.filter(item => item.id !== action.payload)
         },
 
         showCart(state) {
             state.cartIsShown = !state.cartIsShown
         },
 
-        cartIsFetched(state) {
-            state.cartIsFetched = true
-        }
 
        
     }

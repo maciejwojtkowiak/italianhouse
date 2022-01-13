@@ -1,9 +1,8 @@
 import Card from "../UI/Card"
 import styles from './Meals.module.css'
-import { useSelector, useDispatch } from 'react-redux'
+import { useDispatch } from 'react-redux'
 import { cartActions } from "../../store/cart-slice"
 import MealsOrder from "./MealsOrder"
-import { useEffect } from "react"
 
 const DUMMY_MEALS = [
     {
@@ -33,9 +32,7 @@ const DUMMY_MEALS = [
 
 const Meals = () => {
    const dispatch = useDispatch()
-   const cartItems = useSelector(state => state.cart.items)
-   const totalAmount = useSelector(state => state.cart.totalAmount)
-   console.log(totalAmount)
+
 
    const onAddToCart = (meal) => {
         dispatch(cartActions.addItemToCart(meal))
