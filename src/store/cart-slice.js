@@ -3,7 +3,8 @@ import {createSlice} from '@reduxjs/toolkit'
 const INITIAL_STATE = {
     items: [],
     totalAmount: 0,
-    cartIsShown: false
+    cartIsShown: false,
+    cartIsFetched: false
 }
 
 const cartSlice = createSlice({
@@ -11,8 +12,14 @@ const cartSlice = createSlice({
     initialState: INITIAL_STATE,
     reducers: {
         replaceCart(state,action) {
-            state.items = action.payload ? action.payload : []
+
+            state.items = action.payload
         },
+
+        setFetchedTotalAmount(state,action) {
+            state.totalAmount = action.payload
+        },
+
         addItemToCart(state, action) {
             const existingItem = state.items.find(existingItem => existingItem.id === action.payload.id)
             if (!existingItem) {
@@ -21,7 +28,7 @@ const cartSlice = createSlice({
                     name: action.payload.name,
                     price: action.payload.price,
                     totalPrice: action.payload.price,
-                    quantity: 1
+                    quantity: action.payload.quantity
                 })
             }
 
@@ -30,13 +37,19 @@ const cartSlice = createSlice({
                 existingItem.totalPrice = existingItem.quantity * existingItem.price
             }
 
-            state.totalAmount++
+            ++state.totalAmount
             
         },
 
-        showCart(state, action) {
+        showCart(state) {
             state.cartIsShown = !state.cartIsShown
+        },
+
+        cartIsFetched(state) {
+            state.cartIsFetched = true
         }
+
+       
     }
 })
 
