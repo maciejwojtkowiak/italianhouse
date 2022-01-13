@@ -38,15 +38,8 @@ const Meals = () => {
    console.log(totalAmount)
 
    const onAddToCart = (meal) => {
-        fetch('https://italianhouse-1aef0-default-rtdb.europe-west1.firebasedatabase.app/cart.json', {
-            method: 'PUT',
-            body: JSON.stringify({cartItems: cartItems, totalAmount: totalAmount}),
-            headers: {
-                'content-type': 'application/json'
-            }
-
-        })
         dispatch(cartActions.addItemToCart(meal))
+        
    }
 
     

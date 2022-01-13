@@ -3,22 +3,17 @@ import {createSlice} from '@reduxjs/toolkit'
 const INITIAL_STATE = {
     items: [],
     totalAmount: 0,
-    cartIsShown: false
+    cartIsShown: false,
+    cartIsFetched: false
 }
 
 const cartSlice = createSlice({
     name: 'cart',
     initialState: INITIAL_STATE,
     reducers: {
-        getCartData(state,action) {
+        replaceCart(state,action) {
 
-            state.items.push({
-                id: action.payload.id,
-                name: action.payload.name,
-                price: action.payload.price,
-                quantity: action.payload.quantity,
-                totalPrice: action.payload.price * action.payload.quantity,
-            })
+            state.items = action.payload
         },
 
         setFetchedTotalAmount(state,action) {
@@ -46,9 +41,15 @@ const cartSlice = createSlice({
             
         },
 
-        showCart(state, action) {
+        showCart(state) {
             state.cartIsShown = !state.cartIsShown
+        },
+
+        cartIsFetched(state) {
+            state.cartIsFetched = true
         }
+
+       
     }
 })
 
