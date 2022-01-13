@@ -1,0 +1,12 @@
+.tabs {
+    display: grid;
+    place-items: center;
+    grid-template-columns: 1fr 1fr 1fr;
+}
+
+.tabContent {
+    color: white;
+    font-size: 2rem;
+   grid-column: 1 / span 3;
+   padding: 15rem 30rem;
+}

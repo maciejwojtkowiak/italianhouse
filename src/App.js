@@ -6,6 +6,7 @@ import {useSelector, useDispatch} from 'react-redux'
 import Cart from './components/Cart/Cart';
 import Overlay from './components/UI/Overlay';
 import { cartActions } from './store/cart-slice';
+import About from './components/About/About'
 
 
 let isInitial = true
@@ -57,6 +58,7 @@ function App() {
     <React.Fragment>
         <Hero />
         <Meals />
+        <About />
         {isShown &&  <Cart /> }
         {isShown &&  <Overlay /> }
     </React.Fragment>
