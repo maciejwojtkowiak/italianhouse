@@ -27,7 +27,7 @@ const cartSlice = createSlice({
                     id: action.payload.id,
                     name: action.payload.name,
                     price: action.payload.price,
-                    totalPrice: action.payload.totalPrice,
+                    totalPrice: action.payload.price,
                     quantity: action.payload.quantity
                 })
             }

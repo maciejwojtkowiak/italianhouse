@@ -14,23 +14,27 @@ function App() {
   const isShown = useSelector(state => state.cart.cartIsShown)
   const cartItems = useSelector(state => state.cart.items)
   const totalAmount = useSelector(state => state.cart.totalAmount)
+  console.log(totalAmount)
 
   const loadedMeals = []
   useEffect(() => {
-    fetch('https://italianhouse-1aef0-default-rtdb.europe-west1.firebasedatabase.app/cart.json')
-    .then(res => res.json())
-    .then(data => {
+    const fetchCart = async () => {
+      const response = await fetch('https://italianhouse-1aef0-default-rtdb.europe-west1.firebasedatabase.app/cart.json')
+      const data = await response.json()
       const keys = Object.keys(data.cartItems)
       keys.forEach(key => loadedMeals.push(data.cartItems[key]) )
       dispatch(cartActions.replaceCart(loadedMeals))
       dispatch(cartActions.setFetchedTotalAmount(data.totalAmount))
-      isInitial = false
-    })
+    }
+    fetchCart()
   }, [dispatch])
   
   useEffect(() => {
-    if (isInitial) return
-    
+    if (isInitial) {
+      isInitial = false
+      return
+    } 
+    console.log(cartItems)
     fetch('https://italianhouse-1aef0-default-rtdb.europe-west1.firebasedatabase.app/cart.json', {
             method: 'PUT',
             body: JSON.stringify({cartItems: cartItems, totalAmount: totalAmount}),
