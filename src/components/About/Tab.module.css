@@ -4,10 +4,3 @@
     background-color: aqua;
     border-radius: 10rem;
 }
-
-.tabContent {
-    color: white;
-    font-size: 2rem;
-    grid-column: 1 / span 3;
-    padding: 15rem 30rem;
-}
