@@ -3,9 +3,9 @@ import styles from './OrderForm.module.css'
 
 const OrderForm = () => {
     return (
-        <div>
+        <div className={styles.orderForm}>
             <label htmlFor='name'>Name</label>
-            <input id="name" type='text' />
+            <input className={styles.flext} id="name" type='text' />
 
             <label htmlFor='lastName'>Last Name</label>
             <input id="lastName" type='text' />
@@ -21,6 +21,8 @@ const OrderForm = () => {
 
             <label htmlFor='postal'>Postal Code</label>
             <input id="postal" type='text' />
+
+           
         </div>
     )
 }

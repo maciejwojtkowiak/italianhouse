@@ -3,4 +3,15 @@
     grid-template-columns: 1fr 1fr 1fr 1fr;
     place-items: center;
     list-style: none;
+    margin: 3rem 0;
+}
+
+.order-detail-table > li {
+    padding: 1rem 2rem;
+    color: white;
+    font-size: 2rem;
+    background-image: radial-gradient(rgb(248, 37, 37), rgb(226, 17, 51));
+    border-radius: 10rem;
+    
+    
 }

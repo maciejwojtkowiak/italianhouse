@@ -5,6 +5,8 @@ import CartItems from "./CartItems"
 import { useSelector } from "react-redux"
 import OrderForm from "./Order/OrderForm"
 import { useState } from "react"
+import DetailTable from "./DetailTable"
+import OrderButton from "./Order/OrderButton"
 
 
 
@@ -30,10 +32,9 @@ const Cart = () => {
     return ReactDOM.createPortal(
         <React.Fragment>
                 <div className={styles.cart}> 
+                    <DetailTable />
                     <CartItems />
-                    <form onSubmit={onOrderHandler}>
-                        <button onClick={showOrderFormHandler} className={styles.button}>Order</button>
-                    </form>
+                    <OrderButton onOrder={onOrderHandler} onClick={showOrderFormHandler} />
                     {orderIsShown && < OrderForm />}
                 </div>
         </React.Fragment>,

@@ -3,3 +3,7 @@
     place-items: center;
     grid-template-columns: repeat(4, 1fr);
 }
+
+.cart-item > p {
+    font-size: 2rem;
+}
