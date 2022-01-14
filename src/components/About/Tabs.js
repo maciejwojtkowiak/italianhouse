@@ -4,7 +4,9 @@ import { useState } from 'react'
 import Content from './Content'
 
 const Tabs = () => {
-    const [activeTab, setActiveTab] = useState(1)
+    const [activeTab, setActiveTab] = useState(0)
+
+
     const firstTabContent = (
     <p>
         "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut 
@@ -29,13 +31,19 @@ const Tabs = () => {
         eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
     </p> )
 
+    const tabActivationHandler = (num) => {
+        setActiveTab(num)
+    }
+
    
     return (
         <div className={styles.tabs}>
-            <Tab name='first' /> 
-            <Tab />
-            <Tab />
+            <Tab name='Recipe' activate={tabActivationHandler.bind(null, 1)} /> 
+            <Tab name='Experience' activate={tabActivationHandler.bind(null, 2)} />
+            <Tab name='Ingredients' activate={tabActivationHandler.bind(null, 3)} />
             {activeTab === 1 && <Content header="Secret recipe" content= {firstTabContent} />}
+            {activeTab === 2 && <Content header="Years of experience" content= {secondTabContent} />}
+            {activeTab === 3 && <Content header="The best ingredients" content= {thirdTabContent} />}
             
         </div>
     )

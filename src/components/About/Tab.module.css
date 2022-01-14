@@ -1,6 +1,9 @@
 .tab {
     height: 7vh;
     width: 40vh;
-    background-color: aqua;
+    background-color: rgb(255, 255, 255);
     border-radius: 10rem;
+    border: none;
+    font-size: 3rem;
+    font-weight: 700;
 }
