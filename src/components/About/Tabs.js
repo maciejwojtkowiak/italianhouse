@@ -41,6 +41,7 @@ const Tabs = () => {
             <Tab name='Recipe' activate={tabActivationHandler.bind(null, 1)} /> 
             <Tab name='Experience' activate={tabActivationHandler.bind(null, 2)} />
             <Tab name='Ingredients' activate={tabActivationHandler.bind(null, 3)} />
+            {activeTab === 0 && <Content header="CLICK TAB TO KNOW MORE" content='' />}
             {activeTab === 1 && <Content header="Secret recipe" content= {firstTabContent} />}
             {activeTab === 2 && <Content header="Years of experience" content= {secondTabContent} />}
             {activeTab === 3 && <Content header="The best ingredients" content= {thirdTabContent} />}
