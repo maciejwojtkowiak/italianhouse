@@ -3,10 +3,13 @@ import ReactDOM from 'react-dom'
 import styles from './Cart.module.css'
 import CartItems from "./CartItems"
 import { useSelector } from "react-redux"
+import OrderForm from "./Order/OrderForm"
+import { useState } from "react"
 
 
 
 const Cart = () => {
+    const [orderIsShown, setOrderIsShown]= useState(false)
 
     const cartItems = useSelector(state => state.cart.items)
     const onOrderHandler = (e) => {
@@ -20,13 +23,18 @@ const Cart = () => {
         })
     }
 
+    const showOrderFormHandler = () => {
+        setOrderIsShown(true)
+    }
+
     return ReactDOM.createPortal(
         <React.Fragment>
                 <div className={styles.cart}> 
                     <CartItems />
                     <form onSubmit={onOrderHandler}>
-                        <button className={styles.button}>Order</button>
+                        <button onClick={showOrderFormHandler} className={styles.button}>Order</button>
                     </form>
+                    {orderIsShown && < OrderForm />}
                 </div>
         </React.Fragment>,
             

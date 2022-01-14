@@ -6,6 +6,7 @@ import {useSelector, useDispatch} from 'react-redux'
 import Cart from './components/Cart/Cart';
 import Overlay from './components/UI/Overlay';
 import { cartActions } from './store/cart-slice';
+import About from './components/About/About'
 
 
 let isInitial = true
@@ -14,17 +15,20 @@ function App() {
   const isShown = useSelector(state => state.cart.cartIsShown)
   const cartItems = useSelector(state => state.cart.items)
   const totalAmount = useSelector(state => state.cart.totalAmount)
-  console.log(totalAmount)
+  const cart = useSelector(state => state.cart)
 
-  const loadedMeals = []
+
   useEffect(() => {
     const fetchCart = async () => {
       const response = await fetch('https://italianhouse-1aef0-default-rtdb.europe-west1.firebasedatabase.app/cart.json')
       const data = await response.json()
-      const keys = Object.keys(data.cartItems)
-      keys.forEach(key => loadedMeals.push(data.cartItems[key]) )
-      dispatch(cartActions.replaceCart(loadedMeals))
-      dispatch(cartActions.setFetchedTotalAmount(data.totalAmount))
+      if (data) {
+        
+        dispatch(cartActions.setFetchedTotalAmount(data.totalAmount))
+      }
+
+      dispatch(cartActions.replaceCart(data.cartItems || []))
+      
     }
     fetchCart()
   }, [dispatch])
@@ -34,8 +38,9 @@ function App() {
       isInitial = false
       return
     } 
-    console.log(cartItems)
-    fetch('https://italianhouse-1aef0-default-rtdb.europe-west1.firebasedatabase.app/cart.json', {
+
+    if (cart.changed) {
+      fetch('https://italianhouse-1aef0-default-rtdb.europe-west1.firebasedatabase.app/cart.json', {
             method: 'PUT',
             body: JSON.stringify({cartItems: cartItems, totalAmount: totalAmount}),
             headers: {
@@ -43,14 +48,17 @@ function App() {
             }
 
         })
+    }
+    
         
-  }, [cartItems, totalAmount])
+  }, [cartItems, totalAmount, cart.changed])
 
 
   return (
     <React.Fragment>
         <Hero />
         <Meals />
+        <About />
         {isShown &&  <Cart /> }
         {isShown &&  <Overlay /> }
     </React.Fragment>

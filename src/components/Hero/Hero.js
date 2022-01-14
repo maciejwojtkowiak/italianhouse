@@ -1,10 +1,15 @@
 import styles from './Hero.module.css'
 import Header from '../Navbar/Header'
 import pizza from '../../images/Naples.png'
+import { useDispatch } from 'react-redux'
+import { cartActions } from '../../store/cart-slice'
 
 const Hero = () => {
     
-    
+    const dispatch = useDispatch()
+    const showCartHandler = () => {
+        dispatch(cartActions.showCart())
+    }
     return (    
         <div className={styles.heroContainer}>
             <Header />
@@ -20,7 +25,7 @@ const Hero = () => {
                     ac ornare lacus. Nulla condimentum ac nulla at aliquet. Integer 
                     quis tincidunt lorem. Nulla rutrum ullamcorper lobortis.</p>
 
-                <button className={styles.orderButton}>Order now</button>
+                <button className={styles.orderButton} onClick={showCartHandler}>Order now</button>
             </div>
                 <div className={styles.description__rightside}>
                     <img alt="pizza img" className={styles.heroImage} src={pizza} />
