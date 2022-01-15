@@ -2,26 +2,6 @@ import SendOrderButton from './SendOrderButton'
 import styles from './OrderForm.module.css'
 import { useState, useReducer, useEffect } from 'react'
 
-
-
-/*
-code to check name: {val: '', 
-        isValid: null, 
-        validator: (name) => {
-            if (name.trim().length > 0) {
-                return {
-                    val: this.val, 
-                    isValid: true
-                }
-            } else {
-                return {
-                    val: this.val,
-                    isValid: true
-                }
-            }
-        }}, */
-
-
 const initialReducerValue = {
     name: {
         val: '', 
@@ -92,12 +72,6 @@ const OrderForm = () => {
         setFormIsValid(isTrue)
     }, [formState])
    
-    
-
-    
-   
-
-
     return (
         <div className={styles.orderForm}>
             <label htmlFor='name'>Name</label>
