@@ -24,7 +24,6 @@ export const fetchCartData = () => {
 export const sendData = (cart) => {
     return async (dispatch) => {
         
-        console.log(cart)
         
             const putData = async () => {
                 const response = await fetch('https://italianhouse-1aef0-default-rtdb.europe-west1.firebasedatabase.app/cart.json', {
@@ -45,9 +44,5 @@ export const sendData = (cart) => {
               } catch(err) {
                   console.log(err)
               }
-        
-         
-           
-          
     }
 }

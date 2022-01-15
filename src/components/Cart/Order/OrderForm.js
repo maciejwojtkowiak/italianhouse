@@ -54,13 +54,15 @@ const OrderForm = () => {
 
     const orderReducer = (state, action) => {
         if (action.type === 'HANDLE TEXT CHANGE') {
-            
+            let inputIsValid = false
+            if (action.payload.trim().length === 0) inputIsValid = false 
+            if (action.payload.trim().length > 0) inputIsValid = true
             
             return {
                 ...state,
                 [action.field]: {
                     val: action.payload,
-                    isValid: true 
+                    isValid: inputIsValid 
                 }
                 
             }
