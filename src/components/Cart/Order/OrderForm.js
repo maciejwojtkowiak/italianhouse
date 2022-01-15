@@ -2,30 +2,68 @@ import SendOrderButton from './SendOrderButton'
 import styles from './OrderForm.module.css'
 import { useReducer } from 'react'
 
+
+
+/*
+code to check name: {val: '', 
+        isValid: null, 
+        validator: (name) => {
+            if (name.trim().length > 0) {
+                return {
+                    val: this.val, 
+                    isValid: true
+                }
+            } else {
+                return {
+                    val: this.val,
+                    isValid: true
+                }
+            }
+        }}, */
+
+
 const initialReducerValue = {
-    name: '',
-    lastName: '',
-    phoneNumber: '',
-    city: '',
-    street: '',
-    postal: '',
-    isValid: false
+    name: {
+        val: '', 
+        isValid: false, 
+    },
+    lastName: {
+        vaL: '',
+        isValid: null
+    },
+    phoneNumber: {
+        val: '',
+        isValid: null
+    },
+    city: {
+        val: '',
+        isValid: null,
+    },
+    street: {
+        val: '',
+        isValid: null
+    },
+    postal: {
+        val: '',
+        isValid: null
+    },
+    isFormValid: false
+    
 }
 
 const OrderForm = () => {
 
     const orderReducer = (state, action) => {
         if (action.type === 'HANDLE TEXT CHANGE') {
-            state.isValid = action.field.trim().length > 0
-            if (action.field === 'phoneNumber') {
-                state.isValid = action.field.trim().length === 9
-            }
-            if (action.field === 'postal') {
-                state.isValid = action.field.trim().length === 5
-            }
+            
+            
             return {
                 ...state,
-                [action.field]: action.payload
+                [action.field]: {
+                    val: action.payload,
+                    isValid: true 
+                }
+                
             }
         }
     }
@@ -41,10 +79,11 @@ const OrderForm = () => {
         })
     }
 
+
     return (
         <div className={styles.orderForm}>
             <label htmlFor='name'>Name</label>
-            <input onChange={changeTextHandler} className={styles.flext} id="name" name='name' type='text' />
+            <input onChange={changeTextHandler} id="name" name='name' type='text' />
 
             <label htmlFor='lastName'>Last Name</label>
             <input onChange={changeTextHandler} id="lastName" name='lastName' type='text' />
@@ -61,7 +100,7 @@ const OrderForm = () => {
             <label htmlFor='postal'>Postal Code</label>
             <input onChange={changeTextHandler} id="postal" name='postal' type='text' />
             
-            {formState.isValid && <SendOrderButton /> }
+            {<SendOrderButton isValid={formState.isValid} /> }
         </div>
 
         

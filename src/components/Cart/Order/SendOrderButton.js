@@ -1,6 +1,6 @@
 import { useSelector } from "react-redux"
 
-const SendOrderButton = () => {
+const SendOrderButton = (props) => {
     const cartItems = useSelector(state => state.cart.items)
     const onOrderHandler = (e) => {
         e.preventDefault()
@@ -15,7 +15,7 @@ const SendOrderButton = () => {
     return (
         <form>
         
-            <button onClick={onOrderHandler} type="submit" >Send Order</button>
+            <button disabled={!props.isValid} onClick={onOrderHandler} type="submit" >Send Order</button>
         </form>
     )
 }
