@@ -1,6 +1,6 @@
 import SendOrderButton from './SendOrderButton'
 import styles from './OrderForm.module.css'
-import { useReducer } from 'react'
+import { useState, useReducer, useEffect } from 'react'
 
 
 
@@ -29,25 +29,24 @@ const initialReducerValue = {
     },
     lastName: {
         vaL: '',
-        isValid: null
+        isValid: false
     },
     phoneNumber: {
         val: '',
-        isValid: null
+        isValid: false
     },
     city: {
         val: '',
-        isValid: null,
+        isValid: false,
     },
     street: {
         val: '',
-        isValid: null
+        isValid: false
     },
     postal: {
         val: '',
-        isValid: null
+        isValid: false
     },
-    isFormValid: false
     
 }
 
@@ -67,9 +66,11 @@ const OrderForm = () => {
             }
         }
     }
+    
+
 
     const [formState, formDispatch] = useReducer(orderReducer, initialReducerValue)
-    console.log(formState)
+    const [formIsValid, setFormIsValid] = useState(false)
 
     const changeTextHandler = (e) => {
         formDispatch({
@@ -78,6 +79,20 @@ const OrderForm = () => {
             payload: e.target.value
         })
     }
+    const validationArray = []
+    useEffect(() => {
+        for (const key of Object.keys(formState)) {
+            validationArray.push(formState[key].isValid)
+         }
+
+        const isTrue = validationArray.every(item => item)
+        setFormIsValid(isTrue)
+    }, [formState])
+   
+    
+
+    
+   
 
 
     return (
@@ -100,7 +115,7 @@ const OrderForm = () => {
             <label htmlFor='postal'>Postal Code</label>
             <input onChange={changeTextHandler} id="postal" name='postal' type='text' />
             
-            {<SendOrderButton isValid={formState.isValid} /> }
+            {<SendOrderButton isValid={true} /> }
         </div>
 
         
