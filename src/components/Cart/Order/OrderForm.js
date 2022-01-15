@@ -79,8 +79,9 @@ const OrderForm = () => {
             payload: e.target.value
         })
     }
-    const validationArray = []
+    
     useEffect(() => {
+        const validationArray = []
         for (const key of Object.keys(formState)) {
             validationArray.push(formState[key].isValid)
          }
@@ -115,7 +116,7 @@ const OrderForm = () => {
             <label htmlFor='postal'>Postal Code</label>
             <input onChange={changeTextHandler} id="postal" name='postal' type='text' />
             
-            {<SendOrderButton isValid={true} /> }
+            {<SendOrderButton isValid={formIsValid} /> }
         </div>
 
         
