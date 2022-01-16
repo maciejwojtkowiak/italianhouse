@@ -14,6 +14,7 @@ const CartItem = (props) => {
                 <p>{props.totalPrice}</p>
                 <button onClick={deleteHandler}>&#9587;</button>
             </div>
+            
         </div>
         
          

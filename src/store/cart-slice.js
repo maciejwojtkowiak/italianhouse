@@ -44,8 +44,17 @@ const cartSlice = createSlice({
 
 
         removeItemFromCart(state, action) {
+            // dokończ logikę usuwania rzeczy z koszyka.
             const itemToDeletion = state.items.find(item => item.id === action.payload)
-            state.items = state.items.filter(item => item.id !== action.payload)
+            if (itemToDeletion.quantity === 1) {
+                state.items = state.items.filter(item => item.id !== action.payload)
+            } else {
+                itemToDeletion.quantity--
+                itemToDeletion.totalPrice = [itemToDeletion.quantity * itemToDeletion.price]
+            }
+
+            state.totalAmount--
+            
             
         },
 
