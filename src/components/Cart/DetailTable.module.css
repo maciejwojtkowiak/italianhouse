@@ -1,5 +1,6 @@
 .order-detail-table {
     display: grid;
+    width: 95%;
     grid-template-columns: 1fr 1fr 1fr 1fr;
     place-items: center;
     list-style: none;

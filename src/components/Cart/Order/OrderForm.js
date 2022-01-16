@@ -1,6 +1,8 @@
 import SendOrderButton from './SendOrderButton'
 import styles from './OrderForm.module.css'
 import { useState, useReducer, useEffect } from 'react'
+import { useSelector } from 'react-redux'
+
 
 const initialReducerValue = {
     name: {
@@ -31,6 +33,7 @@ const initialReducerValue = {
 }
 
 const OrderForm = () => {
+    const cartItems = useSelector(state => state.cart.items)
 
     const orderReducer = (state, action) => {
         if (action.type === 'HANDLE TEXT CHANGE') {
@@ -71,6 +74,22 @@ const OrderForm = () => {
         const isTrue = validationArray.every(item => item)
         setFormIsValid(isTrue)
     }, [formState])
+
+    
+    const onOrderHandler = (e) => {
+        e.preventDefault()
+        const inputArray = []
+        for (const [key, value] of Object.entries(formState)) {
+            inputArray.push({[key]: value.val})
+        }
+        fetch('https://italianhouse-1aef0-default-rtdb.europe-west1.firebasedatabase.app/orders.json', {
+            method: 'POST',
+            body: JSON.stringify({cartItems: cartItems, userData: inputArray}),
+            headers: {
+                'content-type': 'application/json'
+            }
+        })
+    }
    
     return (
         <div className={styles.orderForm}>
@@ -92,7 +111,7 @@ const OrderForm = () => {
             <label htmlFor='postal'>Postal Code</label>
             <input onChange={changeTextHandler} id="postal" name='postal' type='text' />
             
-            {<SendOrderButton isValid={formIsValid} /> }
+            {<SendOrderButton isValid={formIsValid} onOrder={onOrderHandler} /> }
         </div>
 
         
