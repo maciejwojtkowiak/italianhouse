@@ -75,20 +75,16 @@ const OrderForm = () => {
         setFormIsValid(isTrue)
     }, [formState])
 
-    useEffect(() => {
+    
+    const onOrderHandler = (e) => {
+        e.preventDefault()
         const inputArray = []
         for (const [key, value] of Object.entries(formState)) {
             inputArray.push({[key]: value.val})
         }
-    }, [formState])
-
-
-    
-    const onOrderHandler = (e) => {
-        e.preventDefault()
         fetch('https://italianhouse-1aef0-default-rtdb.europe-west1.firebasedatabase.app/orders.json', {
             method: 'POST',
-            body: JSON.stringify(cartItems),
+            body: JSON.stringify({cartItems: cartItems, userData: inputArray}),
             headers: {
                 'content-type': 'application/json'
             }
@@ -115,7 +111,7 @@ const OrderForm = () => {
             <label htmlFor='postal'>Postal Code</label>
             <input onChange={changeTextHandler} id="postal" name='postal' type='text' />
             
-            {<SendOrderButton isValid={formIsValid} /> }
+            {<SendOrderButton isValid={formIsValid} onOrder={onOrderHandler} /> }
         </div>
 
         

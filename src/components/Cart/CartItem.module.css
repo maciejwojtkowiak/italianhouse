@@ -9,22 +9,6 @@
     font-size: 2rem;
 }
 
-.cart-item > button {
-   
-}
-
-/*
-.actions {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    font-size: 2rem;
-    position: relative;
-    width: 100%;
-}
-*/
-
 .actions {
     display: grid;
     width: 100%;
