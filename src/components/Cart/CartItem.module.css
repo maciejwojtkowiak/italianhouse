@@ -13,6 +13,7 @@
    
 }
 
+/*
 .actions {
     display: flex;
     flex-direction: row;
@@ -30,5 +31,14 @@
     transform: translate(0%, -50%);
    
 } 
+*/
+
+.actions {
+    display: grid;
+    width: 100%;
+    grid-template-columns: 1fr min-content;
+    place-items: center;
+    font-size: 2rem;
+}
 
 
