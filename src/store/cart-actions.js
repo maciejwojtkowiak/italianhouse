@@ -22,7 +22,7 @@ export const fetchCartData = () => {
 }
 
 export const sendData = (cart) => {
-    return async (dispatch) => {
+    return async () => {
         
         
             const putData = async () => {

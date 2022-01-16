@@ -44,7 +44,9 @@ const cartSlice = createSlice({
 
 
         removeItemFromCart(state, action) {
-            state.items.filter(item => item.id !== action.payload)
+            const itemToDeletion = state.items.find(item => item.id === action.payload)
+            state.items = state.items.filter(item => item.id !== action.payload)
+            
         },
 
         showCart(state) {
