@@ -1,10 +1,11 @@
-import styles from './Notificaton.module.css'
+import styles from './Notification.module.css'
 
 
-const Notification = () => {
+const Notification = (props) => {
     return (
-        <div>
+        <div className={styles.notification}>
             <p>Item was added to cart</p>
+            <p>{props.message}</p>
         </div>
     )
 }

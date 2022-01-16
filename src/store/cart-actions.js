@@ -1,4 +1,5 @@
 import { cartActions } from "./cart-slice"
+import { uiActions } from "./ui-slice"
 
 
 export const fetchCartData = () => {
@@ -22,7 +23,7 @@ export const fetchCartData = () => {
 }
 
 export const sendData = (cart) => {
-    return async () => {
+    return async (dispatch) => {
         
         
             const putData = async () => {
@@ -40,8 +41,10 @@ export const sendData = (cart) => {
               }
     
               try {
+                  dispatch(uiActions.showNotification('added'))
                   await putData()
               } catch(err) {
+                dispatch(uiActions.showNotification('Something went wrong with adding item to cart'))
                   console.log(err)
               }
     }

@@ -1,17 +1,21 @@
 import {createSlice} from '@reduxjs/toolkit'
 
 const INITIAL_VALUE = {
-    notificationIsShown: false
+    notificationIsShown: false,
+    notification: {
+        message: null
+    }
 }
 
 
 
-const uiSlice = createSlice({
+export const uiSlice = createSlice({
     name: 'uiSlice',
     initialState: INITIAL_VALUE,
     reducers: {
-        showNotification(state) {
+        showNotification(state, action) {
             state.notificationIsShown = true
+            state.notification.message = action.payload
         },
 
         hideNotification(state) {
@@ -19,3 +23,6 @@ const uiSlice = createSlice({
         }
     }
 })
+
+export const uiActions = uiSlice.actions
+export default uiSlice

@@ -8,12 +8,14 @@ import Overlay from './components/UI/Overlay';
 import About from './components/About/About'
 import {fetchCartData} from './store/cart-actions'
 import { sendData } from './store/cart-actions'
+import Notification from './components/UI/Notification'
 
 let isInitial = true
 function App() {
   const dispatch = useDispatch()
   const isShown = useSelector(state => state.cart.cartIsShown)
   const cart = useSelector(state => state.cart)
+  const notification = useSelector(state => state.ui.notification)
   
   useEffect(() => {
     dispatch(fetchCartData())
@@ -34,6 +36,7 @@ function App() {
 
   return (
     <React.Fragment>
+        <Notification message={notification.message}  />
         <Hero />
         <Meals />
         <About />
