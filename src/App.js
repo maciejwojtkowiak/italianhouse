@@ -6,9 +6,9 @@ import {useSelector, useDispatch} from 'react-redux'
 import Cart from './components/Cart/Cart';
 import Overlay from './components/UI/Overlay';
 import About from './components/About/About'
-import {fetchCartData} from './store/cart-actions'
-import { sendData } from './store/cart-actions'
+import {fetchCartData, sendData, hideNotification  } from './store/cart-actions'
 import Notification from './components/UI/Notification'
+import { uiActions } from './store/ui-slice';
 
 let isInitial = true
 function App() {
@@ -16,9 +16,11 @@ function App() {
   const isShown = useSelector(state => state.cart.cartIsShown)
   const cart = useSelector(state => state.cart)
   const notification = useSelector(state => state.ui.notification)
+  const notificationIsShown = useSelector(state => state.ui.notificationIsShown)
   
   useEffect(() => {
     dispatch(fetchCartData())
+    
   }, [dispatch])
   
   useEffect(() => {
@@ -29,6 +31,7 @@ function App() {
 
     if (cart.changed) {
       dispatch(sendData(cart))
+      setTimeout(() => {dispatch(uiActions.hideNotification())}, 1000)
     }
    
   }, [dispatch, cart])
@@ -36,7 +39,7 @@ function App() {
 
   return (
     <React.Fragment>
-        <Notification message={notification.message}  />
+        {notificationIsShown && <Notification message={notification.message}  />}
         <Hero />
         <Meals />
         <About />

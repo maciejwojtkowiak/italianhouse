@@ -14,6 +14,7 @@ export const fetchCartData = () => {
             const data = await fetchCart()
             dispatch(cartActions.replaceCart(data.cartItems || []))
             dispatch(cartActions.setFetchedTotalAmount(data.totalAmount || 0))
+            dispatch(uiActions.showNotification('cart fetched'))
     
           } catch (err) {
             console.log(err)
@@ -47,5 +48,12 @@ export const sendData = (cart) => {
                 dispatch(uiActions.showNotification('Something went wrong with adding item to cart'))
                   console.log(err)
               }
+    }
+}
+
+
+export const hideNotification = () => {
+    return async (dispatch) => {
+        dispatch(uiActions.hideNotification)
     }
 }
