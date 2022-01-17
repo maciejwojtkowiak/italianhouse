@@ -6,8 +6,15 @@
     z-index: 10;
     transform: translate(-50%, 0%);
     text-align: center;
-    background-image: radial-gradient(rgb(62, 207, 62), rgb(62, 190, 62));
     color: #fff;
     font-size: 2rem;
     
+}
+
+.notification-added {
+    background-image: radial-gradient(rgb(62, 207, 62), rgb(62, 190, 62));
+}
+
+.notification-remove {
+    background-image: radial-gradient(rgb(207, 62, 62), rgb(187, 32, 4));
 }

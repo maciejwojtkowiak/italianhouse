@@ -4,7 +4,7 @@ import { useDispatch } from 'react-redux'
 import { cartActions } from "../../store/cart-slice"
 import MealsOrder from "./MealsOrder"
 import diavola from '../../images/Diavola.png'
-import marg from '../../images/Marg.png'
+import marg from '../../images/Marga.png'
 import prosciutto from '../../images/Prosciutto.png'
 
 const DUMMY_MEALS = [
@@ -58,7 +58,7 @@ const Meals = () => {
                     <div className={styles['meal-detail']}>
                         <h3>{meal.name}</h3>
                         <p>{meal.ingredients}</p>
-                        <img src={meal.img} />
+                        <img alt="pizza-img" src={meal.img} />
                     </div>
                     <div className={styles['meal-detail']}>
                         <p>{meal.price}$</p>

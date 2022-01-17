@@ -10,3 +10,7 @@
     background-image: radial-gradient(rgb(248, 37, 37), rgb(226, 17, 51));
 
 }
+
+.button:disabled {
+    background-image: radial-gradient(rgb(194, 191, 191), rgb(231, 231, 231));
+}
