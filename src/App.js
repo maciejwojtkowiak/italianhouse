@@ -6,34 +6,56 @@ import {useSelector, useDispatch} from 'react-redux'
 import Cart from './components/Cart/Cart';
 import Overlay from './components/UI/Overlay';
 import About from './components/About/About'
-import {fetchCartData} from './store/cart-actions'
-import { sendData } from './store/cart-actions'
+import {fetchCartData, sendData} from './store/cart-actions'
+import Notification from './components/UI/Notification'
+import { uiActions } from './store/ui-slice';
 
 let isInitial = true
 function App() {
   const dispatch = useDispatch()
   const isShown = useSelector(state => state.cart.cartIsShown)
-  const cart = useSelector(state => state.cart)
+  const cartIsChanged = useSelector(state => state.cart.changed)
+  const cartItems = useSelector(state => state.cart.items)
+  const notification = useSelector(state => state.ui.notification)
+  const notificationIsShown = useSelector(state => state.ui.notificationIsShown)
+  
   
   useEffect(() => {
+    let hideNotification;
     dispatch(fetchCartData())
+    hideNotification = setTimeout(() => {dispatch(uiActions.hideNotification())}, 1000)
+    
+    return () => {
+      clearTimeout(hideNotification)
+    }
   }, [dispatch])
   
   useEffect(() => {
+    
+    
+
+
     if (isInitial) {
       isInitial = false
       return
     }
 
-    if (cart.changed) {
-      dispatch(sendData(cart))
+    if (cartIsChanged) {
+      let hideNotification;
+      dispatch(sendData(cartItems))
+      hideNotification = setTimeout(() => {dispatch(uiActions.hideNotification())}, 1000)
+
+
+    return () => {
+      clearTimeout(hideNotification)
     }
    
-  }, [dispatch, cart])
+  }}, [dispatch, cartIsChanged, cartItems])
 
 
   return (
     <React.Fragment>
+        {notificationIsShown && <Notification message={notification.message}  />}
         <Hero />
         <Meals />
         <About />

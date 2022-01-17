@@ -82,6 +82,7 @@ const OrderForm = () => {
         for (const [key, value] of Object.entries(formState)) {
             inputArray.push({[key]: value.val})
         }
+        console.log(inputArray)
         fetch('https://italianhouse-1aef0-default-rtdb.europe-west1.firebasedatabase.app/orders.json', {
             method: 'POST',
             body: JSON.stringify({cartItems: cartItems, userData: inputArray}),

@@ -5,6 +5,8 @@ const INITIAL_STATE = {
     totalAmount: 0,
     cartIsShown: false,
     changed: false,
+    added: false,
+    deleted: false
 }
 
 const cartSlice = createSlice({
@@ -39,12 +41,12 @@ const cartSlice = createSlice({
 
             ++state.totalAmount
             state.changed = true
+            state.added = true
             
         },
 
 
         removeItemFromCart(state, action) {
-            // dokończ logikę usuwania rzeczy z koszyka.
             const itemToDeletion = state.items.find(item => item.id === action.payload)
             if (itemToDeletion.quantity === 1) {
                 state.items = state.items.filter(item => item.id !== action.payload)
@@ -54,6 +56,7 @@ const cartSlice = createSlice({
             }
 
             state.totalAmount--
+            state.deleted = true
             
             
         },

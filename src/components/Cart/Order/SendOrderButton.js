@@ -2,9 +2,8 @@
 const SendOrderButton = (props) => {
    
     return (
-        <form>
-        
-            <button disabled={!props.isValid} onClick={props.onOrder} type="submit" >Send Order</button>
+        <form onSubmit={props.onOrder}> 
+            <button type='submit' disabled={!props.isValid} type="submit" >Send Order</button>
         </form>
     )
 }
