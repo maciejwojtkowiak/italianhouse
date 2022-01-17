@@ -14,7 +14,8 @@ let isInitial = true
 function App() {
   const dispatch = useDispatch()
   const isShown = useSelector(state => state.cart.cartIsShown)
-  const cart = useSelector(state => state.cart)
+  const cartIsChanged = useSelector(state => state.cart.changed)
+  const cartItems = useSelector(state => state.cart.items)
   const notification = useSelector(state => state.ui.notification)
   const notificationIsShown = useSelector(state => state.ui.notificationIsShown)
   
@@ -29,12 +30,12 @@ function App() {
       return
     }
 
-    if (cart.changed) {
-      dispatch(sendData(cart))
+    if (cartIsChanged) {
+      dispatch(sendData(cartItems))
       setTimeout(() => {dispatch(uiActions.hideNotification())}, 1000)
     }
    
-  }, [dispatch, cart])
+  }, [dispatch, cartIsChanged, cartItems])
 
 
   return (

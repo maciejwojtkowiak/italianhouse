@@ -44,6 +44,7 @@ export const sendData = (cart) => {
               try {
                   dispatch(uiActions.showNotification('added'))
                   await putData()
+                  
               } catch(err) {
                 dispatch(uiActions.showNotification('Something went wrong with adding item to cart'))
                   console.log(err)
