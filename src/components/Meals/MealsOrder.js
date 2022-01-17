@@ -1,4 +1,4 @@
-
+import styles from './MealsOrder.module.css'
 
 const MealsOrder = (props) => {
 
@@ -7,7 +7,7 @@ const MealsOrder = (props) => {
         props.onAddToCart()
     }
     return (
-        <form onSubmit={formSubmitHandler}>
+        <form className={styles.form} onSubmit={formSubmitHandler}>
             <button type="submit">Add to cart</button>
         </form>
     )

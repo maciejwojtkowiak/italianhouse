@@ -5,6 +5,8 @@ const INITIAL_STATE = {
     totalAmount: 0,
     cartIsShown: false,
     changed: false,
+    added: false,
+    deleted: false
 }
 
 const cartSlice = createSlice({
@@ -39,6 +41,7 @@ const cartSlice = createSlice({
 
             ++state.totalAmount
             state.changed = true
+            state.added = true
             
         },
 
@@ -53,6 +56,7 @@ const cartSlice = createSlice({
             }
 
             state.totalAmount--
+            state.deleted = true
             
             
         },

@@ -6,7 +6,7 @@ import {useSelector, useDispatch} from 'react-redux'
 import Cart from './components/Cart/Cart';
 import Overlay from './components/UI/Overlay';
 import About from './components/About/About'
-import {fetchCartData, sendData, hideNotification  } from './store/cart-actions'
+import {fetchCartData, sendData} from './store/cart-actions'
 import Notification from './components/UI/Notification'
 import { uiActions } from './store/ui-slice';
 
@@ -19,23 +19,38 @@ function App() {
   const notification = useSelector(state => state.ui.notification)
   const notificationIsShown = useSelector(state => state.ui.notificationIsShown)
   
+  
   useEffect(() => {
+    let hideNotification;
     dispatch(fetchCartData())
+    hideNotification = setTimeout(() => {dispatch(uiActions.hideNotification())}, 1000)
     
+    return () => {
+      clearTimeout(hideNotification)
+    }
   }, [dispatch])
   
   useEffect(() => {
+    
+    
+
+
     if (isInitial) {
       isInitial = false
       return
     }
 
     if (cartIsChanged) {
+      let hideNotification;
       dispatch(sendData(cartItems))
-      setTimeout(() => {dispatch(uiActions.hideNotification())}, 1000)
+      hideNotification = setTimeout(() => {dispatch(uiActions.hideNotification())}, 1000)
+
+
+    return () => {
+      clearTimeout(hideNotification)
     }
    
-  }, [dispatch, cartIsChanged, cartItems])
+  }}, [dispatch, cartIsChanged, cartItems])
 
 
   return (

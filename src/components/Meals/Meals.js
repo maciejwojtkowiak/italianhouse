@@ -3,30 +3,38 @@ import styles from './Meals.module.css'
 import { useDispatch } from 'react-redux'
 import { cartActions } from "../../store/cart-slice"
 import MealsOrder from "./MealsOrder"
+import diavola from '../../images/Diavola.png'
+import marg from '../../images/Marg.png'
+import prosciutto from '../../images/Prosciutto.png'
 
 const DUMMY_MEALS = [
     {
         id: 1,
-        name: 'Margarita',
-        ingredients: 'cheese and tomato sauce',
+        name: 'Marinera',
+        ingredients: 'tomato sauce',
         price: 10,
-        quantity: 1
+        quantity: 1,
+        img: marg
     },
 
     {
         id: 2,
-        name: 'Funghi',
+        name: 'Margherita',
         ingredients: 'cheese, tomato sauce and champignons',
-        price: 15,
-        quantity: 1
+        price: 13,
+        quantity: 1,
+        img: diavola
+        
     },
 
     {
         id: 3,
-        name: 'Vegetarian',
+        name: 'Diavola',
         ingredients: 'cheese, tomato sauce, corn, peppers',
-        price: 13,
-        quantity: 1
+        price: 18,
+        quantity: 1,
+        img: prosciutto
+        
     }
 ]
 
@@ -50,6 +58,7 @@ const Meals = () => {
                     <div className={styles['meal-detail']}>
                         <h3>{meal.name}</h3>
                         <p>{meal.ingredients}</p>
+                        <img src={meal.img} />
                     </div>
                     <div className={styles['meal-detail']}>
                         <p>{meal.price}$</p>
