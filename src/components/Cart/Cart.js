@@ -3,7 +3,6 @@ import ReactDOM from 'react-dom'
 import styles from './Cart.module.css'
 import CartItems from "./CartItems"
 import OrderForm from "./Order/OrderForm"
-import { useState } from "react"
 import DetailTable from "./DetailTable"
 import OrderButton from "./Order/OrderButton"
 import { useSelector} from 'react-redux'

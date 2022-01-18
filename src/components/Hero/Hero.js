@@ -1,11 +1,11 @@
 import styles from './Hero.module.css'
 import Header from '../Navbar/Header'
 import pizza from '../../images/Naples.png'
-const Hero = () => {
+const Hero = (props) => {
     
   
     const smoothScrollHandler = () => {
-        
+        props.meals.current.scrollIntoView({behavior: 'smooth', block:'center'})
     }
 
 
@@ -24,7 +24,7 @@ const Hero = () => {
                     ac ornare lacus. Nulla condimentum ac nulla at aliquet. Integer 
                     quis tincidunt lorem. Nulla rutrum ullamcorper lobortis.</p>
 
-                <a className={styles.orderButton} href='#meals' onClick={smoothScrollHandler}>Order now</a>
+                <button className={styles.orderButton} onClick={smoothScrollHandler}>Order now</button>
             </div>
                 <div className={styles.description__rightside}>
                     <img alt="pizza img" className={styles.heroImage} src={pizza} />

@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react';
+import React, {useEffect, useRef} from 'react';
 import './App.css';
 import Hero from './components/Hero/Hero';
 import Meals from './components/Meals/Meals';
@@ -21,6 +21,7 @@ function App() {
   const notification = useSelector(state => state.ui.notification)
   const notificationIsShown = useSelector(state => state.ui.notificationIsShown)
   const isAdded = useSelector(state => state.cart.added)
+  const scrollToMeals = useRef(null)
 
   let message = isAdded ? 'Item was added to cart' : 'Item was removed from cart'
   
@@ -60,8 +61,8 @@ function App() {
   return (
     <React.Fragment>
         {notificationIsShown && <Notification message={notification.message}  />}
-        <Hero />
-        <Meals />
+        <Hero meals={scrollToMeals} />
+        <Meals refProp={scrollToMeals} />
         <About />
         {isShown &&  <Cart /> }
         {isShown &&  <Overlay /> }
