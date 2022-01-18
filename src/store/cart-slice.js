@@ -6,7 +6,6 @@ const INITIAL_STATE = {
     cartIsShown: false,
     changed: false,
     added: false,
-    deleted: false,
     orderIsSent: false,
     orderIsShown: false,
     fetchingCart: false
@@ -61,7 +60,8 @@ const cartSlice = createSlice({
             }
 
             state.totalAmount--
-            state.deleted = true
+            state.changed = true
+            state.added = false
             
             
         },

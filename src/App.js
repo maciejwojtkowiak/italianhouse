@@ -28,8 +28,8 @@ function App() {
   
   useEffect(() => {
     dispatch(cartActions.fetchCart(true))
+    dispatch(fetchCartData('cart is fetched'))
     let hideNotification;
-    dispatch(fetchCartData())
     hideNotification = setTimeout(() => {dispatch(uiActions.hideNotification())}, 1000)
     dispatch(cartActions.fetchCart(false))
     return () => {
