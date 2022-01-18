@@ -6,7 +6,8 @@ const INITIAL_STATE = {
     cartIsShown: false,
     changed: false,
     added: false,
-    deleted: false
+    deleted: false,
+    orderIsSent: false,
 }
 
 const cartSlice = createSlice({
@@ -23,6 +24,7 @@ const cartSlice = createSlice({
         },
 
         addItemToCart(state, action) {
+            state.added = true
             const existingItem = state.items.find(existingItem => existingItem.id === action.payload.id)
             if (!existingItem) {
                 state.items.push({
@@ -47,6 +49,7 @@ const cartSlice = createSlice({
 
 
         removeItemFromCart(state, action) {
+            state.added = false
             const itemToDeletion = state.items.find(item => item.id === action.payload)
             if (itemToDeletion.quantity === 1) {
                 state.items = state.items.filter(item => item.id !== action.payload)
@@ -63,7 +66,12 @@ const cartSlice = createSlice({
 
         showCart(state) {
             state.cartIsShown = !state.cartIsShown
+            state.orderIsSent = false
         },
+
+        orderIsSent(state) {
+            state.orderIsSent = true
+        }
 
 
        

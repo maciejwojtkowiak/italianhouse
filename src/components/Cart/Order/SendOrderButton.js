@@ -1,10 +1,17 @@
-
+import styles from './SendOrderButton.module.css'
+import { useDispatch } from 'react-redux'
+import { cartActions } from '../../../store/cart-slice'
 const SendOrderButton = (props) => {
-   
+    const dispatch = useDispatch()
+
+    const clickHandler = () => {
+        dispatch(cartActions.orderIsSent())
+    }
+
     return (
-        <form onSubmit={props.onOrder}> 
-            <button type='submit' disabled={!props.isValid} type="submit" >Send Order</button>
-        </form>
+         
+            <button onClick={clickHandler} className={styles.button} type='submit' disabled={!props.isValid} >Send Order</button>
+        
     )
 }
 

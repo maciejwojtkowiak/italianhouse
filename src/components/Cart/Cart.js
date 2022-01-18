@@ -6,11 +6,15 @@ import OrderForm from "./Order/OrderForm"
 import { useState } from "react"
 import DetailTable from "./DetailTable"
 import OrderButton from "./Order/OrderButton"
+import { useSelector } from "react-redux"
 
 
 
 const Cart = () => {
     const [orderIsShown, setOrderIsShown]= useState(false)
+    const cartItems = useSelector(state => state.cart.items)
+    const orderIsSent = useSelector(state => state.cart.orderIsSent)
+    let cartHasItems = cartItems.length > 0
 
    
 
@@ -24,7 +28,8 @@ const Cart = () => {
                     <DetailTable />
                     <CartItems />
                     {!orderIsShown && <OrderButton onClick={showOrderFormHandler} />}
-                    {orderIsShown && < OrderForm />}
+                    {cartHasItems && orderIsShown && !orderIsSent && < OrderForm />}
+                    {orderIsSent && <p>Order was sent!</p>}
                 </div>
         </React.Fragment>,
             

@@ -1,10 +1,11 @@
 import styles from './Notification.module.css'
+import { useSelector } from 'react-redux'
 
 
 const Notification = (props) => {
+    const isAdded = useSelector(state => state.cart.added)
     return (
-        <div className={styles.notification}>
-            <p>Item was added to cart</p>
+        <div className={`${styles.notification} ${isAdded ? styles['notification-added'] : styles['notification-remove']}`}>
             <p>{props.message}</p>
         </div>
     )
