@@ -18,10 +18,6 @@ const Cart = () => {
     
     let cartHasItems = cartItems.length > 0
 
-   
-
-    
-
     return ReactDOM.createPortal(
         <React.Fragment>
                 <div className={styles.cart}> 
