@@ -9,6 +9,7 @@ import About from './components/About/About'
 import {fetchCartData, sendData} from './store/cart-actions'
 import Notification from './components/UI/Notification'
 import { uiActions } from './store/ui-slice';
+import { cartActions } from './store/cart-slice';
 
 let isInitial = true
 function App() {
@@ -23,10 +24,11 @@ function App() {
   
   
   useEffect(() => {
+    dispatch(cartActions.fetchCart(true))
     let hideNotification;
     dispatch(fetchCartData())
     hideNotification = setTimeout(() => {dispatch(uiActions.hideNotification())}, 1000)
-    
+    dispatch(cartActions.fetchCart(false))
     return () => {
       clearTimeout(hideNotification)
     }

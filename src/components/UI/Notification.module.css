@@ -20,3 +20,7 @@
     background-image: radial-gradient(rgb(207, 62, 62), rgb(187, 32, 4));
     
 }
+
+.notification-fetch {
+    background-image: radial-gradient(rgb(89, 0, 233), rgb(25, 0, 252));
+}

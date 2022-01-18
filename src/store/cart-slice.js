@@ -8,6 +8,7 @@ const INITIAL_STATE = {
     added: false,
     deleted: false,
     orderIsSent: false,
+    fetchingCart: false
 }
 
 const cartSlice = createSlice({
@@ -71,6 +72,10 @@ const cartSlice = createSlice({
 
         orderIsSent(state) {
             state.orderIsSent = true
+        },
+
+        fetchCart(state, action) {
+            state.fetchingCart = action.payload
         }
 
 

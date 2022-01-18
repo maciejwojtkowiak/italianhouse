@@ -7,6 +7,7 @@ import { useState } from "react"
 import DetailTable from "./DetailTable"
 import OrderButton from "./Order/OrderButton"
 import { useSelector } from "react-redux"
+import OrderWasSent from "./Order/OrderWasSent"
 
 
 
@@ -29,7 +30,7 @@ const Cart = () => {
                     <CartItems />
                     {!orderIsShown && <OrderButton onClick={showOrderFormHandler} />}
                     {cartHasItems && orderIsShown && !orderIsSent && < OrderForm />}
-                    {orderIsSent && <p>Order was sent!</p>}
+                    {orderIsSent && <OrderWasSent />}
                 </div>
         </React.Fragment>,
             
