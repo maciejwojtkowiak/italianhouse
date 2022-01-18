@@ -24,7 +24,7 @@ const Hero = () => {
                     ac ornare lacus. Nulla condimentum ac nulla at aliquet. Integer 
                     quis tincidunt lorem. Nulla rutrum ullamcorper lobortis.</p>
 
-                <a href='#meals' onClick={smoothScrollHandler} className={styles.orderButton}>Order now</a>
+                <a className={styles.orderButton} href='#meals' onClick={smoothScrollHandler}>Order now</a>
             </div>
                 <div className={styles.description__rightside}>
                     <img alt="pizza img" className={styles.heroImage} src={pizza} />

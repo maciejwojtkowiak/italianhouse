@@ -21,6 +21,8 @@ function App() {
   const notification = useSelector(state => state.ui.notification)
   const notificationIsShown = useSelector(state => state.ui.notificationIsShown)
   const isAdded = useSelector(state => state.cart.added)
+
+  let message = isAdded ? 'Item was added to cart' : 'Item was removed from cart'
   
   
   useEffect(() => {
@@ -41,7 +43,7 @@ function App() {
       return
     }
 
-    let message = isAdded ? 'Item was added to cart' : 'Item was removed from cart'
+    
 
     if (cartIsChanged) {
       let hideNotification;
@@ -53,7 +55,7 @@ function App() {
       clearTimeout(hideNotification)
     }
    
-  }}, [dispatch, cartIsChanged, cartItems, totalAmount])
+  }}, [dispatch, cartIsChanged, cartItems, totalAmount, message])
 
   return (
     <React.Fragment>
