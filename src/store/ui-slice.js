@@ -15,7 +15,8 @@ export const uiSlice = createSlice({
     reducers: {
         showNotification(state, action) {
             state.notificationIsShown = true
-            state.notification.message = action.payload
+            state.notification.message = action.payload.message,
+            state.notification.type = action.payload.type
         },
 
         hideNotification(state) {

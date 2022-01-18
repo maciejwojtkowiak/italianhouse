@@ -60,7 +60,7 @@ function App() {
 
   return (
     <React.Fragment>
-        {notificationIsShown && <Notification message={notification.message}  />}
+        {notificationIsShown && <Notification message={notification.message} type={notification.type}  />}
         <Hero meals={scrollToMeals} />
         <Meals refProp={scrollToMeals} />
         <About />
