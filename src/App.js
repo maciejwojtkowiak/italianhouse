@@ -19,6 +19,7 @@ function App() {
   const totalAmount = useSelector(state => state.cart.totalAmount)
   const notification = useSelector(state => state.ui.notification)
   const notificationIsShown = useSelector(state => state.ui.notificationIsShown)
+  const isAdded = useSelector(state => state.cart.added)
   
   
   useEffect(() => {
@@ -33,33 +34,24 @@ function App() {
   
   useEffect(() => {
    
-
-    
-
-
     if (isInitial) {
       isInitial = false
       return
     }
 
+    let message = isAdded ? 'Item was added to cart' : 'Item was removed from cart'
+
     if (cartIsChanged) {
       let hideNotification;
-      dispatch(sendData({items: cartItems, totalAmount: totalAmount}))
+      dispatch(sendData({items: cartItems, totalAmount: totalAmount}, message ))
          
-       
       hideNotification = setTimeout(() => {dispatch(uiActions.hideNotification())}, 1000)
-
 
     return () => {
       clearTimeout(hideNotification)
     }
    
-
-
   }}, [dispatch, cartIsChanged, cartItems, totalAmount])
-
- 
-
 
   return (
     <React.Fragment>

@@ -8,44 +8,71 @@ const initialReducerValue = {
     name: {
         val: '', 
         isValid: false, 
+        errorMessage: null
     },
     lastName: {
         vaL: '',
-        isValid: false
+        isValid: false,
+        errorMessage: null
     },
     phoneNumber: {
         val: '',
-        isValid: false
+        isValid: false,
+        errorMessage: null
     },
     city: {
         val: '',
         isValid: false,
+        errorMessage: null
     },
     street: {
         val: '',
-        isValid: false
+        isValid: false,
+        errorMessage: null
     },
     postal: {
         val: '',
-        isValid: false
+        isValid: false,
+        errorMessage: null
     },
     
 }
 
 const OrderForm = () => {
     const cartItems = useSelector(state => state.cart.items)
-
+  
     const orderReducer = (state, action) => {
         if (action.type === 'HANDLE TEXT CHANGE') {
             let inputIsValid = false
+            let errorMessage = null
             if (action.payload.trim().length === 0) inputIsValid = false 
             if (action.payload.trim().length > 0) inputIsValid = true
+
+            if ((action.field === 'name' 
+            || action.field === 'lastName' 
+            || action.field === 'city' 
+            || action.field === 'street')
+            && !inputIsValid){
+                errorMessage =  `${action.field === 'lastName' ? 'last name': action.field} must contain only letters and cannot be empty`
+            }
+
+            if (action.field === 'phoneNumber' && !inputIsValid) {
+                errorMessage = 'Phone number must contain only numbers and should be the length of 9'
+            }
+
+            if (action.field === 'postal' && !inputIsValid) {
+                errorMessage = 'Postal must contain only numbers and should be the length of 5'
+            }
+
+
+
             
             return {
                 ...state,
                 [action.field]: {
                     val: action.payload,
-                    isValid: inputIsValid 
+                    isValid: inputIsValid ,
+                    errorMessage: errorMessage
                 }
                 
             }
@@ -69,6 +96,7 @@ const OrderForm = () => {
         const validationArray = []
         for (const key of Object.keys(formState)) {
             validationArray.push(formState[key].isValid)
+            console.log(formState[key].errorMessage)
          }
 
         const isTrue = validationArray.every(item => item)
@@ -82,7 +110,6 @@ const OrderForm = () => {
         for (const [key, value] of Object.entries(formState)) {
             inputArray.push({[key]: value.val})
         }
-        console.log(inputArray)
         fetch('https://italianhouse-1aef0-default-rtdb.europe-west1.firebasedatabase.app/orders.json', {
             method: 'POST',
             body: JSON.stringify({cartItems: cartItems, userData: inputArray}),
@@ -95,22 +122,22 @@ const OrderForm = () => {
     return (
         <div className={styles.orderForm}>
             <label htmlFor='name'>Name</label>
-            <input onChange={changeTextHandler} id="name" name='name' type='text' />
+            <input onChange={changeTextHandler} id="name" name='name' type='text' placeholder={formState.name.errorMessage} />
 
             <label htmlFor='lastName'>Last Name</label>
-            <input onChange={changeTextHandler} id="lastName" name='lastName' type='text' />
+            <input onChange={changeTextHandler} id="lastName" name='lastName' type='text' placeholder={formState.lastName.errorMessage} />
 
             <label htmlFor='phoneNumber'>Phone Number</label>
-            <input onChange={changeTextHandler} id="phoneNumber" name='phoneNumber' type='number' />
+            <input onChange={changeTextHandler} id="phoneNumber" name='phoneNumber' type='number' placeholder={formState.phoneNumber.errorMessage} />
 
             <label htmlFor='city'>City</label>
-            <input onChange={changeTextHandler} id="city" name='city' type='text' />
+            <input onChange={changeTextHandler} id="city" name='city' type='text' placeholder={formState.city.errorMessage} />
 
             <label htmlFor='street'>Street</label>
-            <input onChange={changeTextHandler} id="street" name='street' type='text' />
+            <input onChange={changeTextHandler} id="street" name='street' type='text' placeholder={formState.street.errorMessage} />
 
             <label htmlFor='postal'>Postal Code</label>
-            <input onChange={changeTextHandler} id="postal" name='postal' type='text' />
+            <input onChange={changeTextHandler} id="postal" name='postal' type='text' placeholder={formState.postal.errorMessage} />
             
             {<SendOrderButton isValid={formIsValid} onOrder={onOrderHandler} /> }
         </div>

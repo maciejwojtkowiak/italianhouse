@@ -13,8 +13,10 @@
 
 .notification-added {
     background-image: radial-gradient(rgb(62, 207, 62), rgb(62, 190, 62));
+    
 }
 
 .notification-remove {
     background-image: radial-gradient(rgb(207, 62, 62), rgb(187, 32, 4));
+    
 }

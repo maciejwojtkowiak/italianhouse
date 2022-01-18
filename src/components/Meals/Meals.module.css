@@ -26,3 +26,15 @@
 .meal-detail >img {
     width: 80%;
 }
+
+.name {
+    font-size: 4rem;
+}
+
+.ingredients {
+    font-size: 1.4rem;
+}
+
+.price {
+    font-size: 2.5rem;
+}

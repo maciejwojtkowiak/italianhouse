@@ -23,7 +23,7 @@ export const fetchCartData = () => {
     
 }
 
-export const sendData = (cart) => {
+export const sendData = (cart, message) => {
     return async (dispatch) => {
         
         
@@ -42,7 +42,7 @@ export const sendData = (cart) => {
               }
     
               try {
-                  dispatch(uiActions.showNotification('added'))
+                  dispatch(uiActions.showNotification(message))
                   await putData()
                   
               } catch(err) {
