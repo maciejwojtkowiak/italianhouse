@@ -51,7 +51,7 @@ const Meals = () => {
 
 
     return (
-        <div className={styles.meals}>
+        <div className={styles.meals} id="meals">
             {DUMMY_MEALS.map(meal => 
             <Card key={meal.id}>
                 <div className={styles['meal-item']}>

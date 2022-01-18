@@ -1,10 +1,10 @@
-
+import styles from './SendOrderButton.module.css'
 const SendOrderButton = (props) => {
    
     return (
-        <form onSubmit={props.onOrder}> 
-            <button type='submit' disabled={!props.isValid} type="submit" >Send Order</button>
-        </form>
+         
+            <button className={styles.button} type='submit' disabled={!props.isValid} >Send Order</button>
+        
     )
 }
 
