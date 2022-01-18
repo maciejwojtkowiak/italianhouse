@@ -6,7 +6,8 @@ const INITIAL_STATE = {
     cartIsShown: false,
     changed: false,
     added: false,
-    deleted: false
+    deleted: false,
+    orderIsSent: false,
 }
 
 const cartSlice = createSlice({
@@ -65,7 +66,12 @@ const cartSlice = createSlice({
 
         showCart(state) {
             state.cartIsShown = !state.cartIsShown
+            state.orderIsSent = false
         },
+
+        orderIsSent(state) {
+            state.orderIsSent = true
+        }
 
 
        

@@ -99,7 +99,6 @@ const OrderForm = () => {
         const validationArray = []
         for (const key of Object.keys(formState)) {
             validationArray.push(formState[key].isValid)
-            console.log(formState[key].errorMessage)
          }
 
         const isTrue = validationArray.every(item => item)
@@ -132,22 +131,22 @@ const OrderForm = () => {
     return (
         <form onSubmit={onSubmitHandler} className={styles.orderForm}>
             <label htmlFor='name'>Name</label>
-            <input value={formState.name.val} onChange={changeTextHandler} id="name" name='name' type='text' placeholder={formState.name.errorMessage} />
+            <input onChange={changeTextHandler} id="name" name='name' type='text' placeholder={formState.name.errorMessage} />
 
             <label htmlFor='lastName'>Last Name</label>
-            <input value={formState.lastName.val} onChange={changeTextHandler} id="lastName" name='lastName' type='text' placeholder={formState.lastName.errorMessage} />
+            <input onChange={changeTextHandler} id="lastName" name='lastName' type='text' placeholder={formState.lastName.errorMessage} />
 
             <label htmlFor='phoneNumber'>Phone Number</label>
-            <input value={formState.phoneNumber.val} onChange={changeTextHandler} id="phoneNumber" name='phoneNumber' type='number' placeholder={formState.phoneNumber.errorMessage} />
+            <input onChange={changeTextHandler} id="phoneNumber" name='phoneNumber' type='number' placeholder={formState.phoneNumber.errorMessage} />
 
             <label htmlFor='city'>City</label>
-            <input value={formState.city.val} onChange={changeTextHandler} id="city" name='city' type='text' placeholder={formState.city.errorMessage} />
+            <input onChange={changeTextHandler} id="city" name='city' type='text' placeholder={formState.city.errorMessage} />
 
             <label htmlFor='street'>Street</label>
-            <input value={formState.street.val} onChange={changeTextHandler} id="street" name='street' type='text' placeholder={formState.street.errorMessage} />
+            <input onChange={changeTextHandler} id="street" name='street' type='text' placeholder={formState.street.errorMessage} />
 
             <label htmlFor='postal'>Postal Code</label>
-            <input value={formState.postal.val} onChange={changeTextHandler} id="postal" name='postal' type='text' placeholder={formState.postal.errorMessage} />
+            <input onChange={changeTextHandler} id="postal" name='postal' type='text' placeholder={formState.postal.errorMessage} />
             
             {<SendOrderButton isValid={formIsValid} onOrder={onOrderHandler} /> }
         </form>
