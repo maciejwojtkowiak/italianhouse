@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react';
+import React, {useEffect, useRef} from 'react';
 import './App.css';
 import Hero from './components/Hero/Hero';
 import Meals from './components/Meals/Meals';
@@ -10,6 +10,7 @@ import {fetchCartData, sendData} from './store/cart-actions'
 import Notification from './components/UI/Notification'
 import { uiActions } from './store/ui-slice';
 
+
 let isInitial = true
 function App() {
   const dispatch = useDispatch()
@@ -20,13 +21,15 @@ function App() {
   const notification = useSelector(state => state.ui.notification)
   const notificationIsShown = useSelector(state => state.ui.notificationIsShown)
   const isAdded = useSelector(state => state.cart.added)
+  const scrollToMeals = useRef(null)
+
+  let message = isAdded ? 'Item was added to cart' : 'Item was removed from cart'
   
   
   useEffect(() => {
+    dispatch(fetchCartData('cart is fetched'))
     let hideNotification;
-    dispatch(fetchCartData())
     hideNotification = setTimeout(() => {dispatch(uiActions.hideNotification())}, 1000)
-    
     return () => {
       clearTimeout(hideNotification)
     }
@@ -39,7 +42,7 @@ function App() {
       return
     }
 
-    let message = isAdded ? 'Item was added to cart' : 'Item was removed from cart'
+    
 
     if (cartIsChanged) {
       let hideNotification;
@@ -51,16 +54,17 @@ function App() {
       clearTimeout(hideNotification)
     }
    
-  }}, [dispatch, cartIsChanged, cartItems, totalAmount])
+  }}, [dispatch, cartIsChanged, cartItems, totalAmount, message])
+
 
   return (
     <React.Fragment>
-        {notificationIsShown && <Notification message={notification.message}  />}
-        <Hero />
-        <Meals />
+        {<Notification message={notification.message} type={notification.type}  />}
+        <Hero meals={scrollToMeals} />
+        <Meals refProp={scrollToMeals} />
         <About />
         {isShown &&  <Cart /> }
-        {isShown &&  <Overlay /> }
+        {isShown &&  <Overlay /> } 
     </React.Fragment>
       
   );

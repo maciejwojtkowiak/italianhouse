@@ -5,7 +5,7 @@ const SendOrderButton = (props) => {
     const dispatch = useDispatch()
 
     const clickHandler = () => {
-        dispatch(cartActions.orderIsSent())
+        dispatch(cartActions.orderIsSent(true))
     }
 
     return (

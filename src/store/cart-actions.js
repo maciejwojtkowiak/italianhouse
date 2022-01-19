@@ -2,8 +2,9 @@ import { cartActions } from "./cart-slice"
 import { uiActions } from "./ui-slice"
 
 
-export const fetchCartData = () => {
+export const fetchCartData = (message) => {
     return async (dispatch) => {
+        dispatch(cartActions.isCartBeingFetched(true))
         const fetchCart = async () => {
             const response = await fetch('https://italianhouse-1aef0-default-rtdb.europe-west1.firebasedatabase.app/cart.json')
             const data = await response.json()
@@ -14,11 +15,12 @@ export const fetchCartData = () => {
             const data = await fetchCart()
             dispatch(cartActions.replaceCart(data.cartItems || []))
             dispatch(cartActions.setFetchedTotalAmount(data.totalAmount || 0))
-            dispatch(uiActions.showNotification('cart fetched'))
+            dispatch(uiActions.showNotification({message: message, type:'FETCH'}))
     
           } catch (err) {
             console.log(err)
           }
+          dispatch(cartActions.isCartBeingFetched(false))
     }
     
 }
@@ -42,7 +44,7 @@ export const sendData = (cart, message) => {
               }
     
               try {
-                  dispatch(uiActions.showNotification(message))
+                  dispatch(uiActions.showNotification({message: message, type:'CHANGE'}))
                   await putData()
                   
               } catch(err) {

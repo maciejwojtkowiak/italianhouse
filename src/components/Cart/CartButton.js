@@ -9,6 +9,7 @@ const CartButton = () => {
     const dispatch = useDispatch()
     const onClickHandler = () => {
         dispatch(cartActions.showCart())
+        dispatch(cartActions.orderIsSent(false))
     }
     return (
         <button onClick={onClickHandler} className={styles.cartButton}>

@@ -38,7 +38,7 @@ const DUMMY_MEALS = [
     }
 ]
 
-const Meals = () => {
+const Meals = (props) => {
    const dispatch = useDispatch()
 
 
@@ -51,7 +51,7 @@ const Meals = () => {
 
 
     return (
-        <div className={styles.meals} id="meals">
+        <div ref={props.refProp} className={styles.meals} id="meals">
             {DUMMY_MEALS.map(meal => 
             <Card key={meal.id}>
                 <div className={styles['meal-item']}>

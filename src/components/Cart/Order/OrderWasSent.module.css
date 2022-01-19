@@ -1,0 +1,6 @@
+.order-was-sent {
+    margin-top: 10rem;
+    display: grid;
+    place-items: center;
+    font-size: 3.8rem;
+}

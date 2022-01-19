@@ -6,8 +6,9 @@ const INITIAL_STATE = {
     cartIsShown: false,
     changed: false,
     added: false,
-    deleted: false,
     orderIsSent: false,
+    orderIsShown: false,
+    fetchingCart: false
 }
 
 const cartSlice = createSlice({
@@ -47,7 +48,7 @@ const cartSlice = createSlice({
             
         },
 
-
+        // 'added' property is changed here
         removeItemFromCart(state, action) {
             state.added = false
             const itemToDeletion = state.items.find(item => item.id === action.payload)
@@ -59,18 +60,27 @@ const cartSlice = createSlice({
             }
 
             state.totalAmount--
-            state.deleted = true
+            state.changed = true
+            state.added = false
             
             
         },
 
         showCart(state) {
             state.cartIsShown = !state.cartIsShown
-            state.orderIsSent = false
+
         },
 
-        orderIsSent(state) {
-            state.orderIsSent = true
+        orderIsSent(state, action) {
+            state.orderIsSent = action.payload
+        },
+
+        orderIsShown(state, action) {
+            state.orderIsShown = action.payload
+        },
+
+        isCartBeingFetched(state, action) {
+            state.fetchingCart = action.payload
         }
 
 
