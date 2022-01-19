@@ -4,7 +4,7 @@ import { uiActions } from "./ui-slice"
 
 export const fetchCartData = (message) => {
     return async (dispatch) => {
-        dispatch(cartActions.fetchCart(true))
+        dispatch(cartActions.isCartBeingFetched(true))
         const fetchCart = async () => {
             const response = await fetch('https://italianhouse-1aef0-default-rtdb.europe-west1.firebasedatabase.app/cart.json')
             const data = await response.json()
@@ -20,7 +20,7 @@ export const fetchCartData = (message) => {
           } catch (err) {
             console.log(err)
           }
-          dispatch(cartActions.fetchCart(false))
+          dispatch(cartActions.isCartBeingFetched(false))
     }
     
 }

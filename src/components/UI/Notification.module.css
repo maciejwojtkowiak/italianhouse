@@ -1,29 +1,40 @@
 .notification {
     position: fixed;
     top: 0;
-    left: 50%;
     width: 100%;
     z-index: 10;
-    transform: translate(-50%, 0%);
+
     text-align: center;
     color: #fff;
     font-size: 2rem;
+    transition: all .2s;
+    opacity: 0;
     
 }
 
 .notification-added {
     background-image: radial-gradient(rgb(62, 207, 62), rgb(62, 190, 62));
+    opacity: 1;
   
     
 }
 
 .notification-remove {
     background-image: radial-gradient(rgb(207, 62, 62), rgb(187, 32, 4));
+    opacity: 1;
    
 }
 
 .notification-fetch {
     background-image: radial-gradient(rgb(89, 0, 233), rgb(25, 0, 252));
+    opacity: 1;
     
 }
+
+
+  .div {
+      height: 50vh;
+      width: 30vw;
+      background-color: white;
+  }
 
