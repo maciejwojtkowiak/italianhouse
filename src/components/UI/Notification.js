@@ -1,7 +1,8 @@
 import styles from './Notification.module.css'
 import { useSelector } from 'react-redux'
 import React from 'react'
-import {CSSTransition} from 'react-transition-group'
+import { CSSTransition } from 'react-transition-group'
+import './Notification.css'
 
 
 const Notification = (props) => {
@@ -12,7 +13,7 @@ const Notification = (props) => {
     console.log(cartIsBeingFetched, isAdded)
     let notificationStyles;
     if (props.type === 'FETCH' && notificationIsShown ) {
-        notificationStyles = `${styles['notification-fetch']}`
+        notificationStyles = `${styles.notification} ${styles['notification-fetch']}`
     }
 
     if (props.type === 'CHANGE' && isAdded && notificationIsShown  ) {
@@ -24,9 +25,10 @@ const Notification = (props) => {
     }
     
     return (
-            <CSSTransition in={notificationIsShown} timeout={100} classNames={styles.notification} >
-                <div className={notificationStyles}>{notificationIsShown && <p>{props.message}</p>}</div> 
-            </CSSTransition>
+        <CSSTransition mountOnEnter unmountOnExit in={notificationIsShown} timeout={2000} classNames='notification'>
+            <div className='notification'><p>{props.message}</p></div> 
+        </CSSTransition>
+            
        
         
       

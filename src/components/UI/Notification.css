@@ -1,19 +1,51 @@
-.my-node-enter {
-    opacity: 0;
-    font-size: 5rem;
-  }
-  .my-node-enter-active {
-    opacity: 1;
-    transition: opacity 5000ms;
-    font-size: 5rem;
-  }
-  .my-node-exit {
-    opacity: 1;
-    font-size: 5rem;
-  }
-  .my-node-exit-active {
-    opacity: 0;
-    transition: opacity 5000ms;
-    font-size: 5rem;
-  }
+.notification {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 10;
+
+  text-align: center;
+  color: #fff;
+  font-size: 2rem;
+  transition: all .8s;
+  opacity: 0;
+}
+
+.notification-enter {
   
+  transition: opacity 800ms;
+  opacity: 0;
+  font-size: 5rem;
+  background-image: radial-gradient(rgb(189, 163, 211), rgb(250, 0, 0));
+    
+  }
+  .notification-enter-active {
+    
+    transition: opacity 800ms;
+    opacity: 1;
+    font-size: 5rem;
+    background-image: radial-gradient(rgb(189, 163, 211), rgb(250, 0, 0));
+  }
+  .notification-exit {
+    
+    transition: opacity 800ms;
+    opacity: 1;
+    font-size: 5rem;
+    background-image: radial-gradient(rgb(189, 163, 211), rgb(250, 0, 0));
+  }
+  .notification-exit-active {
+    
+    transition: opacity 800ms;
+    opacity: 0;
+    font-size: 5rem;
+    background-image: radial-gradient(rgb(189, 163, 211), rgb(250, 0, 0));
+  
+  }
+
+  .notification-exit-done {
+    transition: opacity 800ms;
+    opacity: 0;
+    font-size: 5rem;
+    background-image: radial-gradient(rgb(189, 163, 211), rgb(250, 0, 0));
+  
+  }
