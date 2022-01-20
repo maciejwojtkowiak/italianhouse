@@ -50,7 +50,6 @@ const cartSlice = createSlice({
 
         // 'added' property is changed here
         removeItemFromCart(state, action) {
-            state.added = false
             const itemToDeletion = state.items.find(item => item.id === action.payload)
             if (itemToDeletion.quantity === 1) {
                 state.items = state.items.filter(item => item.id !== action.payload)
