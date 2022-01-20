@@ -2,6 +2,9 @@ import { cartActions } from "./cart-slice"
 import { uiActions } from "./ui-slice"
 
 
+const awaitTimeout = delay => 
+new Promise(resolve => setTimeout(resolve, delay));
+
 export const fetchCartData = (message) => {
     return async (dispatch) => {
         dispatch(cartActions.isCartBeingFetched(true))
@@ -16,13 +19,16 @@ export const fetchCartData = (message) => {
             dispatch(cartActions.replaceCart(data.cartItems || []))
             dispatch(cartActions.setFetchedTotalAmount(data.totalAmount || 0))
             dispatch(uiActions.showNotification({message: message, type:'FETCH'}))
+            
     
           } catch (err) {
             console.log(err)
           }
+
           dispatch(cartActions.isCartBeingFetched(false))
+          await awaitTimeout(2000)
+          dispatch(uiActions.hideNotification())
     }
-    
 }
 
 export const sendData = (cart, message) => {
@@ -51,6 +57,8 @@ export const sendData = (cart, message) => {
                 dispatch(uiActions.showNotification('Something went wrong with adding item to cart'))
                   console.log(err)
               }
+              await awaitTimeout(2000)
+              dispatch(uiActions.hideNotification())      
     }
 }
 

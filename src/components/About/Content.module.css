@@ -1,9 +1,11 @@
 
 .tabContent {
+    display: grid;
+    place-items: center;
     color: white;
+    grid-row: 2/3;
     font-size: 2rem;
     grid-column: 1 / span 3;
+    grid-template-rows: min-content max-content;
     padding: 15rem 30rem;
-    position: absolute;
-    top: 30%;
 }
