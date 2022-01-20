@@ -3,6 +3,7 @@
     height: 80vh;
     background-image: radial-gradient(rgb(24, 179, 24), rgb(4, 177, 4));
     box-sizing: border-box;
+    position: relative;
 }
 
 .header {

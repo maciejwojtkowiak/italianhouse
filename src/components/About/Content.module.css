@@ -4,4 +4,6 @@
     font-size: 2rem;
     grid-column: 1 / span 3;
     padding: 15rem 30rem;
+    position: absolute;
+    top: 30%;
 }

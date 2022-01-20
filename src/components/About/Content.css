@@ -1,0 +1,43 @@
+.content {
+    color: white;
+    font-size: 2rem;
+    grid-column: 1 / span 3;
+    padding: 15rem 30rem;
+    opacity: all .5s;
+}
+
+.content {
+    font-size: 10rem;
+    opacity: 0;
+}
+
+.content-enter {
+    transition: opacity 500ms;
+    opacity: 0;
+      
+    }
+    .content-enter-active {
+        transition: opacity 500ms;
+        opacity: 1;
+     
+     
+    }
+    .content-exit {
+        transition: opacity 500ms;
+      opacity: 1;
+     
+     
+    }
+    .content-exit-active {
+        transition: opacity 500ms;
+      opacity: 0;
+    
+    }
+  
+    .content-exit-done {
+    transition: opacity 500ms;
+      opacity: 0;
+      
+      
+    
+    }
