@@ -13,20 +13,20 @@ const Notification = (props) => {
     console.log(cartIsBeingFetched, isAdded)
     let notificationStyles;
     if (props.type === 'FETCH' && notificationIsShown ) {
-        notificationStyles = `${styles.notification} ${styles['notification-fetch']}`
+        notificationStyles = `${styles['notification-fetch']}`
     }
 
     if (props.type === 'CHANGE' && isAdded && notificationIsShown  ) {
-        notificationStyles = `${styles.notification} ${styles['notification-added']}`
+        notificationStyles = `${styles['notification-added']}`
     }
 
     if (props.type === 'CHANGE' && !isAdded && notificationIsShown )  {
-        notificationStyles = `${styles.notification} ${styles['notification-remove']}`
+        notificationStyles = ` ${styles['notification-remove']}`
     }
     
     return (
         <CSSTransition mountOnEnter unmountOnExit in={notificationIsShown} timeout={2000} classNames='notification'>
-            <div className='notification'><p>{props.message}</p></div> 
+            <div className={`${styles.notification} ${notificationStyles}`}><p>{props.message}</p></div> 
         </CSSTransition>
             
        
