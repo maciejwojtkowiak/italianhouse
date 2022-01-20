@@ -9,9 +9,11 @@ import About from './components/About/About'
 import {fetchCartData, sendData} from './store/cart-actions'
 import Notification from './components/UI/Notification'
 import { uiActions } from './store/ui-slice';
+import {TransitionGroup, CSSTransition} from 'react-transition-group'
 
 
 let isInitial = true
+// Użyj transitionGroup
 function App() {
   const dispatch = useDispatch()
   const isShown = useSelector(state => state.cart.cartIsShown)
@@ -29,7 +31,7 @@ function App() {
   useEffect(() => {
     dispatch(fetchCartData('cart is fetched'))
     let hideNotification;
-    hideNotification = setTimeout(() => {dispatch(uiActions.hideNotification())}, 1000)
+    hideNotification = setTimeout(() => {dispatch(uiActions.hideNotification())}, 2000)
     return () => {
       clearTimeout(hideNotification)
     }
@@ -48,7 +50,7 @@ function App() {
       let hideNotification;
       dispatch(sendData({items: cartItems, totalAmount: totalAmount}, message ))
          
-      hideNotification = setTimeout(() => {dispatch(uiActions.hideNotification())}, 1000)
+      hideNotification = setTimeout(() => {dispatch(uiActions.hideNotification())}, 2000)
 
     return () => {
       clearTimeout(hideNotification)
@@ -59,7 +61,8 @@ function App() {
 
   return (
     <React.Fragment>
-        {<Notification message={notification.message} type={notification.type}  />}
+       
+        <Notification message={notification.message} type={notification.type}  />
         <Hero meals={scrollToMeals} />
         <Meals refProp={scrollToMeals} />
         <About />
