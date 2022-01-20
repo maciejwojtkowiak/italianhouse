@@ -26,15 +26,10 @@ function App() {
   const scrollToMeals = useRef(null)
 
   let message = isAdded ? 'Item was added to cart' : 'Item was removed from cart'
-  
-  
+ 
+ 
   useEffect(() => {
     dispatch(fetchCartData('cart is fetched'))
-    let hideNotification;
-    hideNotification = setTimeout(() => {dispatch(uiActions.hideNotification())}, 2000)
-    return () => {
-      clearTimeout(hideNotification)
-    }
   }, [dispatch])
   
   useEffect(() => {
@@ -47,14 +42,7 @@ function App() {
     
 
     if (cartIsChanged) {
-      let hideNotification;
       dispatch(sendData({items: cartItems, totalAmount: totalAmount}, message ))
-         
-      hideNotification = setTimeout(() => {dispatch(uiActions.hideNotification())}, 2000)
-
-    return () => {
-      clearTimeout(hideNotification)
-    }
    
   }}, [dispatch, cartIsChanged, cartItems, totalAmount, message])
 
