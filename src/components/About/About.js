@@ -1,9 +1,9 @@
 import styles from './About.module.css'
 import Tabs from './Tabs'
 
-const About = () => {
+const About = (props) => {
     return (
-        <div className={styles.about}>
+        <div ref={props.scrollToAbout} className={styles.about}>
             <h1 className={styles.header}>Our specialty</h1>
             <Tabs />
         </div>

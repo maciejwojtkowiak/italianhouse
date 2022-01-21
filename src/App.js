@@ -19,6 +19,7 @@ function App() {
   const notification = useSelector(state => state.ui.notification)
   const isAdded = useSelector(state => state.cart.added)
   const scrollToMeals = useRef(null)
+  const scrollToAbout = useRef(null)
 
   let message = isAdded ? 'Item was added to cart' : 'Item was removed from cart'
  
@@ -46,9 +47,9 @@ function App() {
     <React.Fragment>
        
         <Notification message={notification.message} type={notification.type}  />
-        <Hero meals={scrollToMeals} />
-        <Meals refProp={scrollToMeals} />
-        <About />
+        <Hero scrollToMeals={scrollToMeals} scrollToAbout={scrollToAbout} />
+        <Meals scrollToMeals={scrollToMeals} />
+        <About scrollToAbout={scrollToAbout} />
         <Cart /> 
         {isShown &&  <Overlay /> } 
     </React.Fragment>

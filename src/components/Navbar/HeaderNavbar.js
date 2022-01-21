@@ -3,20 +3,17 @@ import CartButton from '../Cart/CartButton'
 
 
 
-const HeaderNavbar = () => {
+const HeaderNavbar = (props) => {
     return (
         <nav className={styles.navbar}>
             <div className={styles.restaurantName}>Italian House</div>
             <div>
                 <ul className={styles.headerNavList}>
-                    <li>
-                        Home
+                    <li onClick={props.scrollToMeals}>
+                        Meals
                     </li>
-                    <li>
-                        Order
-                    </li>
-                    <li>
-                        Contact
+                    <li onClick={props.scrollToAbout}>
+                        About
                     </li>
                     <li>
                          <div className={styles.cart}><CartButton /></div>

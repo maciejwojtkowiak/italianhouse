@@ -47,11 +47,12 @@ const Meals = (props) => {
         
    }
 
+
     
 
 
     return (
-        <div ref={props.refProp} className={styles.meals} id="meals">
+        <div ref={props.scrollToMeals} className={styles.meals} id="meals">
             {DUMMY_MEALS.map(meal => 
             <Card key={meal.id}>
                 <div className={styles['meal-item']}>
