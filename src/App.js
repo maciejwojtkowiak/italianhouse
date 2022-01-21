@@ -9,7 +9,7 @@ import About from './components/About/About'
 import {fetchCartData, sendData} from './store/cart-actions'
 import Notification from './components/UI/Notification'
 let isInitial = true
-// Użyj transitionGroup
+
 function App() {
   const dispatch = useDispatch()
   const isShown = useSelector(state => state.cart.cartIsShown)
