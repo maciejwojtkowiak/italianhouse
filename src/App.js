@@ -8,12 +8,8 @@ import Overlay from './components/UI/Overlay';
 import About from './components/About/About'
 import {fetchCartData, sendData} from './store/cart-actions'
 import Notification from './components/UI/Notification'
-import { uiActions } from './store/ui-slice';
-import {TransitionGroup, CSSTransition} from 'react-transition-group'
-
-
 let isInitial = true
-// Użyj transitionGroup
+
 function App() {
   const dispatch = useDispatch()
   const isShown = useSelector(state => state.cart.cartIsShown)
@@ -21,7 +17,6 @@ function App() {
   const cartItems = useSelector(state => state.cart.items)
   const totalAmount = useSelector(state => state.cart.totalAmount)
   const notification = useSelector(state => state.ui.notification)
-  const notificationIsShown = useSelector(state => state.ui.notificationIsShown)
   const isAdded = useSelector(state => state.cart.added)
   const scrollToMeals = useRef(null)
 
@@ -54,7 +49,7 @@ function App() {
         <Hero meals={scrollToMeals} />
         <Meals refProp={scrollToMeals} />
         <About />
-        {isShown &&  <Cart /> }
+        <Cart /> 
         {isShown &&  <Overlay /> } 
     </React.Fragment>
       

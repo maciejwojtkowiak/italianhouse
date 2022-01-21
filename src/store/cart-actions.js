@@ -26,6 +26,7 @@ export const fetchCartData = (message) => {
           }
 
           dispatch(cartActions.isCartBeingFetched(false))
+          clearTimeout(awaitTimeout)
           await awaitTimeout(2000)
           dispatch(uiActions.hideNotification())
     }
@@ -57,6 +58,7 @@ export const sendData = (cart, message) => {
                 dispatch(uiActions.showNotification('Something went wrong with adding item to cart'))
                   console.log(err)
               }
+              clearTimeout(awaitTimeout)
               await awaitTimeout(2000)
               dispatch(uiActions.hideNotification())      
     }
