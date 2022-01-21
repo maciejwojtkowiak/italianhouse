@@ -8,7 +8,7 @@ const MealsOrder = (props) => {
     }
     return (
         <form className={styles.form} onSubmit={formSubmitHandler}>
-            <button type="submit">Add to cart</button>
+            <button className={styles.button} type="submit">Add to cart</button>
         </form>
     )
 }

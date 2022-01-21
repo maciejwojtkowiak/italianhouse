@@ -25,7 +25,7 @@ const Notification = (props) => {
     }
     
     return (
-        <CSSTransition mountOnEnter unmountOnExit in={notificationIsShown} timeout={2000} classNames='notification'>
+        <CSSTransition mountOnEnter  in={notificationIsShown} timeout={2000} classNames='notification'>
             <div className={`${styles.notification} ${notificationStyles}`}><p>{props.message}</p></div> 
         </CSSTransition>
             
