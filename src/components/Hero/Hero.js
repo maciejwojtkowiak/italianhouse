@@ -3,15 +3,19 @@ import Header from '../Navbar/Header'
 import pizza from '../../images/Naples.png'
 const Hero = (props) => {
     
-  
-    const smoothScrollHandler = () => {
-        props.meals.current.scrollIntoView({behavior: 'smooth', block:'center'})
+    
+    const smoothScrollHandlerMeals = () => {
+        props.scrollToMeals.current.scrollIntoView({behavior: 'smooth', block:'center'})
+    }
+
+    const smoothScrollHandlerAbout = () => {
+        props.scrollToAbout.current.scrollIntoView({behavior: 'smooth', block: 'center'})
     }
 
 
     return (    
         <div className={styles.heroContainer}>
-            <Header />
+            <Header scrollToMeals={smoothScrollHandlerMeals} scrollToAbout={smoothScrollHandlerAbout} />
             <div className={styles.description}>
                 <div className={styles.description__leftside}>
                 <h3 className={styles.description__header}>REAL ITALIAN PIZZA</h3>
@@ -24,7 +28,7 @@ const Hero = (props) => {
                     ac ornare lacus. Nulla condimentum ac nulla at aliquet. Integer 
                     quis tincidunt lorem. Nulla rutrum ullamcorper lobortis.</p>
 
-                <button className={styles.orderButton} onClick={smoothScrollHandler}>Order now</button>
+                <button className={styles.orderButton} onClick={smoothScrollHandlerMeals}>Order now</button>
             </div>
                 <div className={styles.description__rightside}>
                     <img alt="pizza img" className={styles.heroImage} src={pizza} />
