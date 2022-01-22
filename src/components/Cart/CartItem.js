@@ -7,6 +7,7 @@ const CartItem = (props) => {
     props.onClickHandler()
    }
    const orderIsShown = useSelector(state => state.cart.orderIsShown)
+   const orderIsSent = useSelector(state => state.cart.orderIsSent)
     return (
         <div className={styles['cart-item']}>
             <p>{props.name}</p>
@@ -14,7 +15,7 @@ const CartItem = (props) => {
             <p>{props.quantity}</p>
             <div className={styles.actions}>
                 <p>{props.totalPrice}</p>
-                {!orderIsShown && <button onClick={deleteHandler}>&minus;</button>}
+                {!orderIsShown && !orderIsSent && <button onClick={deleteHandler}>&minus;</button>}
             </div>
         </div>
        

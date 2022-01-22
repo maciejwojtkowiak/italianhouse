@@ -1,0 +1,23 @@
+.wasSent-enter {
+    transition: opacity 600ms;
+    opacity: 0;
+}
+
+.wasSent-enter-active {
+    transition: opacity 600ms;
+     opacity: 1;
+        
+}
+.wasSent-exit {
+    transition: opacity 600ms;
+    opacity: 1;
+}
+.wasSent-exit-active {
+    transition: opacity 600ms;
+    opacity: 0;
+}
+  
+.wasSent-exit-done {
+    transition: opacity 600ms;
+    opacity: 0;
+}

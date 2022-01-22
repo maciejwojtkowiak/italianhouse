@@ -46,9 +46,9 @@ const Cart = () => {
                 <div className={styles.cart}> 
                         <DetailTable />
                         <CartItems />
-                        <OrderButton />
+                        {!orderIsSent && <OrderButton />}
                         {cartHasItems && orderIsShown && !orderIsSent && < OrderForm />}
-                        {orderIsSent && <OrderWasSent />}
+                        <OrderWasSent/>
                     </div>
             </CSSTransition>
         </React.Fragment>,

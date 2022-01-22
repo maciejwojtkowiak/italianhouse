@@ -8,32 +8,38 @@ const initialReducerValue = {
     name: {
         val: '', 
         isValid: false, 
-        errorMessage: null
+        errorMessage: null,
+        errorClass: null,
     },
     lastName: {
         val: '',
         isValid: false,
-        errorMessage: null
+        errorMessage: null,
+        errorClass: null,
     },
     phoneNumber: {
         val: '',
         isValid: false,
-        errorMessage: null
+        errorMessage: null,
+        errorClass: null,
     },
     city: {
         val: '',
         isValid: false,
-        errorMessage: null
+        errorMessage: null,
+        errorClass: null,
     },
     street: {
         val: '',
         isValid: false,
-        errorMessage: null
+        errorMessage: null,
+        errorClass: null,
     },
     postal: {
         val: '',
         isValid: false,
-        errorMessage: null
+        errorMessage: null,
+        errorClass: null,
     },
     
 }
@@ -45,6 +51,7 @@ const OrderForm = () => {
         if (action.type === 'HANDLE TEXT CHANGE') {
             let inputIsValid = false
             let errorMessage = null
+            let errorClass = null
             if (action.payload.trim().length === 0) inputIsValid = false 
             if (action.payload.trim().length > 0) inputIsValid = true
 
@@ -64,12 +71,17 @@ const OrderForm = () => {
                 errorMessage = 'Postal must contain only numbers and should be the length of 5'
             }
 
+            if (!inputIsValid) {
+                errorClass = `${styles.error}`
+            }
+
             return {
                 ...state,
                 [action.field]: {
                     val: action.payload,
                     isValid: inputIsValid ,
-                    errorMessage: errorMessage
+                    errorMessage: errorMessage,
+                    errorClass: errorClass
                 }
                 
             }
@@ -131,22 +143,22 @@ const OrderForm = () => {
     return (
         <form onSubmit={onSubmitHandler} className={styles.orderForm}>
             <label htmlFor='name'>Name</label>
-            <input onChange={changeTextHandler} id="name" name='name' type='text' placeholder={formState.name.errorMessage} />
+            <input className={formState.name.errorClass} onChange={changeTextHandler} id="name" name='name' type='text' placeholder={formState.name.errorMessage} />
 
             <label htmlFor='lastName'>Last Name</label>
-            <input onChange={changeTextHandler} id="lastName" name='lastName' type='text' placeholder={formState.lastName.errorMessage} />
+            <input className={formState.lastName.errorClass} onChange={changeTextHandler} id="lastName" name='lastName' type='text' placeholder={formState.lastName.errorMessage} />
 
             <label htmlFor='phoneNumber'>Phone Number</label>
-            <input onChange={changeTextHandler} id="phoneNumber" name='phoneNumber' type='number' placeholder={formState.phoneNumber.errorMessage} />
+            <input className={formState.phoneNumber.errorClass} onChange={changeTextHandler} id="phoneNumber" name='phoneNumber' type='number' placeholder={formState.phoneNumber.errorMessage} />
 
             <label htmlFor='city'>City</label>
-            <input onChange={changeTextHandler} id="city" name='city' type='text' placeholder={formState.city.errorMessage} />
+            <input className={formState.city.errorClass} onChange={changeTextHandler} id="city" name='city' type='text' placeholder={formState.city.errorMessage} />
 
             <label htmlFor='street'>Street</label>
-            <input onChange={changeTextHandler} id="street" name='street' type='text' placeholder={formState.street.errorMessage} />
+            <input className={formState.street.errorClass} onChange={changeTextHandler} id="street" name='street' type='text' placeholder={formState.street.errorMessage} />
 
             <label htmlFor='postal'>Postal Code</label>
-            <input onChange={changeTextHandler} id="postal" name='postal' type='text' placeholder={formState.postal.errorMessage} />
+            <input className={formState.postal.errorClass} onChange={changeTextHandler} id="postal" name='postal' type='text' placeholder={formState.postal.errorMessage} />
             
             {<SendOrderButton isValid={formIsValid} onOrder={onOrderHandler} /> }
         </form>
