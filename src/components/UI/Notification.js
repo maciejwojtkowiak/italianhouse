@@ -6,11 +6,11 @@ import './Notification.css'
 
 
 const Notification = (props) => {
-    // zaaplikuj CSSTransition
+
     const isAdded = useSelector(state => state.cart.added)
-    const cartIsBeingFetched = useSelector(state => state.cart.fetchingCart)
     const notificationIsShown = useSelector(state => state.ui.notificationIsShown)
-    console.log(cartIsBeingFetched, isAdded)
+    const isCleared = useSelector(state => state.cart.cleared)
+    
     let notificationStyles;
     if (props.type === 'FETCH' && notificationIsShown ) {
         notificationStyles = `${styles['notification-fetch']}`
@@ -21,7 +21,11 @@ const Notification = (props) => {
     }
 
     if (props.type === 'CHANGE' && !isAdded && notificationIsShown )  {
-        notificationStyles = ` ${styles['notification-remove']}`
+        notificationStyles = ` ${styles['notification-removed']}`
+    }
+
+    if (props.type === 'CHANGE' && isCleared && notificationIsShown )  {
+        notificationStyles = ` ${styles['notification-cleared']}`
     }
     
     return (

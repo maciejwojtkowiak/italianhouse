@@ -18,10 +18,17 @@ function App() {
   const totalAmount = useSelector(state => state.cart.totalAmount)
   const notification = useSelector(state => state.ui.notification)
   const isAdded = useSelector(state => state.cart.added)
+  const isCleared = useSelector(state => state.cart.cleared)
   const scrollToMeals = useRef(null)
   const scrollToAbout = useRef(null)
 
-  let message = isAdded ? 'Item was added to cart' : 'Item was removed from cart'
+  let message;
+  if (isAdded) message = 'Item was added to cart'
+  if (!isAdded) message = 'Item was removed from cart'
+  if (isCleared) message = 'Cart was cleared'
+  
+  
+  
  
  
   useEffect(() => {
