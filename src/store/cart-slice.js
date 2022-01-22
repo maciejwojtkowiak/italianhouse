@@ -16,7 +16,6 @@ const cartSlice = createSlice({
     initialState: INITIAL_STATE,
     reducers: {
         replaceCart(state,action) {
-
             state.items = action.payload
         },
 

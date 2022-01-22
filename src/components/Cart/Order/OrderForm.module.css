@@ -10,11 +10,15 @@
 .orderForm > input {
     width: 50%;
     padding: 1rem 2rem;
-    border: 1px rgb(255, 19, 19) solid;
+    border: 1px rgb(223, 185, 185) solid;
     
 }
 
 .orderForm > label {
     font-size: 1.5rem;
     margin-top: 1.5rem;
+}
+
+.error {
+    background-color: rgb(255, 164, 164);
 }
