@@ -50,13 +50,11 @@ const Tabs = () => {
 
    useEffect(() => {
 
-       setInterval(() => {
-            setActiveTab((prevTab) => {
-                if (prevTab === 3) return 0
-                return prevTab++
-            })
-       }, 20000)
-   
+       const tabInterval = setInterval(() => {
+            setActiveTab((prevTab) => (prevTab + 1) % 3)
+       }, 1000)
+       
+       return clearInterval(tabInterval)
    }, [])
    
 
