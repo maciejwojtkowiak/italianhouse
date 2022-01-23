@@ -1,11 +1,10 @@
 import styles from './Tabs.module.css'
 import Tab from './Tab'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import Content from './Content'
 
 const Tabs = () => {
     const [activeTab, setActiveTab] = useState(0)
-
 
     const firstTabContent = (
     <p>
@@ -48,7 +47,18 @@ const Tabs = () => {
    const firstIsActive = activeTab === 0
    const secondIsActive = activeTab === 1
    const thirdIsActive = activeTab === 2
-   const forthIsActive = activeTab === 3
+
+   useEffect(() => {
+
+       setInterval(() => {
+            setActiveTab((prevTab) => {
+                if (prevTab === 3) return 0
+                return prevTab++
+            })
+       }, 20000)
+   
+   }, [])
+   
 
    
     return (
@@ -57,10 +67,9 @@ const Tabs = () => {
             <Tab name='Recipe' activate={tabActivationHandler.bind(null, 1)} /> 
             <Tab name='Experience' activate={tabActivationHandler.bind(null, 2)} />
             <Tab name='Ingredients' activate={tabActivationHandler.bind(null, 3)} />
-            <Content header="CLICK TAB TO KNOW MORE" content='' isActive={firstIsActive} />
-            <Content header="Secret recipe" content= {firstTabContent} isActive={secondIsActive} />
-            <Content header="Years of experience" content= {secondTabContent} isActive={thirdIsActive} />
-            <Content header="The best ingredients" content= {thirdTabContent} isActive={forthIsActive} />
+            <Content header="Secret recipe" content= {firstTabContent} isActive={firstIsActive} />
+            <Content header="Years of experience" content= {secondTabContent} isActive={secondIsActive} />
+            <Content header="The best ingredients" content= {thirdTabContent} isActive={thirdIsActive} />
             
         </div>
     )
