@@ -52,19 +52,21 @@ const Tabs = () => {
 
        const tabInterval = setInterval(() => {
             setActiveTab((prevTab) => (prevTab + 1) % 3)
-       }, 1000)
+       }, 20000)
        
-       return clearInterval(tabInterval)
-   }, [])
+       return () => {
+        clearInterval(tabInterval)
+    }
+   })
    
 
    
     return (
         <div className={styles.tabs}>
             
-            <Tab name='Recipe' activate={tabActivationHandler.bind(null, 1)} /> 
-            <Tab name='Experience' activate={tabActivationHandler.bind(null, 2)} />
-            <Tab name='Ingredients' activate={tabActivationHandler.bind(null, 3)} />
+            <Tab name='Recipe' activate={tabActivationHandler.bind(null, 0)} /> 
+            <Tab name='Experience' activate={tabActivationHandler.bind(null, 1)} />
+            <Tab name='Ingredients' activate={tabActivationHandler.bind(null, 2)} />
             <Content header="Secret recipe" content= {firstTabContent} isActive={firstIsActive} />
             <Content header="Years of experience" content= {secondTabContent} isActive={secondIsActive} />
             <Content header="The best ingredients" content= {thirdTabContent} isActive={thirdIsActive} />
