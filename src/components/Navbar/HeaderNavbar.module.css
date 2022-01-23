@@ -4,7 +4,16 @@
     align-items: center;
     justify-content: space-between;
     padding: 2rem;
+    width: 100%;
 }
+
+@media only screen and (max-width: 600px) {
+    .navbar {
+        display: grid;
+        place-items: center;
+        
+    }
+} 
 
 .headerNavList {
     display: flex;
@@ -15,6 +24,14 @@
     list-style: none;
     margin-left: auto;
 }
+
+@media only screen and (max-width: 600px) {
+    .headerNavList {
+        margin: 0;
+        
+        
+    }
+} 
 
 .headerNavList > li{
     margin-right: 6rem;
