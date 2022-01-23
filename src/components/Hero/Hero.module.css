@@ -5,20 +5,23 @@
     
 }
 
-.heroImage{
-    
-}
 
 .description {
-
     width:100%;
     height: 85%;
     display: grid;
     place-items: center;
     grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr));
     color: white;
-    
 }
+
+@media only screen and (max-width: 37.5em) {
+    .description {
+       grid-template-columns: 1fr;
+        
+        
+    }
+} 
 
 .left-side-description {
     display: flex;
@@ -28,10 +31,26 @@
     text-align: center;
 }
 
+
 .left-side-description > p {
     padding: 0 15rem;
     font-size: 1.9rem;
 }
+
+@media only screen and (max-width: 37.5em) {
+    .left-side-description {
+       grid-template-columns: 1fr;
+        
+        
+    }
+
+    .left-side-description > p {
+        padding: 0 1rem;
+        font-size: 1.6rem;
+    }
+} 
+
+
 
 
 .description__header {
@@ -40,6 +59,19 @@
     letter-spacing: .5rem;
     font-size: 4.5rem;
 }
+
+@media only screen and (max-width: 37.5em) {
+    .description__header {
+        text-align: center;
+    }
+} 
+
+
+@media only screen and (max-width: 37.5em) {
+    .heroImage {
+        display: none;
+    }
+} 
 
 
 .orderButton {
