@@ -7,7 +7,7 @@ const Content = (props) => {
     const isActive = (props.isActive)
     return (
         <React.Fragment>
-            <CSSTransition mountOnEnter in={isActive} timeout={1000} classNames='content'>
+            <CSSTransition in={isActive} timeout={1000} classNames='content'>
             
                 <div className={styles.tabContent}>
                     <h1>{props.header}</h1>

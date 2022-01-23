@@ -1,6 +1,6 @@
 import styles from './Tabs.module.css'
 import Tab from './Tab'
-import { useState, useEffect } from 'react'
+import React, { useState, useEffect } from 'react'
 import Content from './Content'
 
 const Tabs = () => {
@@ -62,16 +62,20 @@ const Tabs = () => {
 
    
     return (
-        <div className={styles.tabs}>
-            
+        <div>
+            <div className={styles.tabs}>
             <Tab name='Recipe' activate={tabActivationHandler.bind(null, 0)} /> 
             <Tab name='Experience' activate={tabActivationHandler.bind(null, 1)} />
             <Tab name='Ingredients' activate={tabActivationHandler.bind(null, 2)} />
-            <Content header="Secret recipe" content= {firstTabContent} isActive={firstIsActive} />
-            <Content header="Years of experience" content= {secondTabContent} isActive={secondIsActive} />
-            <Content header="The best ingredients" content= {thirdTabContent} isActive={thirdIsActive} />
-            
         </div>
+            <div className={styles.contentContainer}>
+                <Content header="Secret recipe" content= {firstTabContent} isActive={firstIsActive} />
+                <Content header="Years of experience" content= {secondTabContent} isActive={secondIsActive} />
+                <Content header="The best ingredients" content= {thirdTabContent} isActive={thirdIsActive} />
+            </div>
+        </div>
+        
+         
     )
 }
 
