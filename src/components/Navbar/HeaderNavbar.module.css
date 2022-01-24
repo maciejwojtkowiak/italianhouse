@@ -4,7 +4,15 @@
     align-items: center;
     justify-content: space-between;
     padding: 2rem;
+    text-align: center;
 }
+
+@media only screen and (max-width: 37.5em) {
+    .navbar {
+        flex-direction: column;
+        padding: 2rem 
+    }
+} 
 
 .restaurantName {
     color: white;
@@ -14,13 +22,7 @@
  
  }
 
-@media only screen and (max-width: 37.5em) {
-    .navbar {
-        flex-direction: column;
-        padding: 2rem 
-        
-    }
-} 
+
 
 .headerNavList {
     display: flex;

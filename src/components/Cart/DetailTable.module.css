@@ -16,3 +16,11 @@
     
     
 }
+
+@media only screen and (max-width: 37.5em) {
+    .order-detail-table > li{
+        padding: 0.8rem;
+        font-size: 1.6rem;
+        
+    }
+} 

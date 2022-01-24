@@ -22,3 +22,12 @@
 .error {
     background-color: rgb(255, 164, 164);
 }
+
+@media only screen and (max-width: 37.5em) {
+    .orderForm > input {
+        width: 60%;
+        padding: 1rem 2rem;
+        border: 1px rgb(223, 185, 185) solid;
+        
+    }
+} 
