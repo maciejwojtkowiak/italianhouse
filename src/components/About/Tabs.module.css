@@ -4,7 +4,7 @@
     grid-template-columns: 1fr 1fr 1fr;
 }
 
-@media only screen and (max-width: 37.5em) {
+@media only screen and (max-width: 50em) {
     .tabs {
         grid-template-columns: 1fr;   
     }

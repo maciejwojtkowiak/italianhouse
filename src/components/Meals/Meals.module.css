@@ -8,12 +8,14 @@
     padding: 5rem;
 }
 
-@media only screen and (max-width: 37.5em) {
+@media only screen and (max-width: 70em) {
     .meals {
         grid-template-columns: 1fr;
         
     }
 } 
+
+
 
 .meal-item {
     height: 100%;

@@ -6,7 +6,7 @@
         -10px 8px 15px rgba(128, 128, 128, 0.342), 10px 8px 15px rgba(128, 128, 128, 0.445);
 }
 
-@media only screen and (max-width: 37.5em) {
+@media only screen and (max-width: 70em) {
     .card {
         height: 70vh;
         width: 80vw;

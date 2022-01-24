@@ -8,11 +8,19 @@ html {
   box-sizing: border-box;
 }
 
-@media only screen and (max-width: 37.5em) {
+@media only screen and (max-width: 50em) {
   html {
-    font-size: 50%;
+    font-size: 45%;
   }
 } 
+
+@media only screen and (max-width: 37.5em) {
+  html {
+    font-size: 40%;
+  }
+} 
+
+
 
 body {
   position: relative;

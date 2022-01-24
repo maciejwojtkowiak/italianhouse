@@ -13,7 +13,7 @@
 }
 
 
-@media only screen and (max-width: 37.5em) {
+@media only screen and (max-width: 50em) {
     .cart {
         grid-template-columns: 1fr;
         width: 90%;
