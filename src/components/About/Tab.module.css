@@ -1,4 +1,6 @@
-.tab {
+
+.tab > button {
+
     height: 7vh;
     width: 40vh;
     background-color: rgb(255, 255, 255);
@@ -6,4 +8,5 @@
     border: none;
     font-size: 3rem;
     font-weight: 700;
+    margin-bottom: 3rem;
 }

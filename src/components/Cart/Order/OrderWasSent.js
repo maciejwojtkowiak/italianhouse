@@ -8,6 +8,7 @@ const OrderWasSent = () => {
     const dispatch = useDispatch()
     const orderIsSent = useSelector(state => state.cart.orderIsSent)
     const onClickHandler = () => {
+        dispatch(cartActions.clearCart())
         dispatch(cartActions.showCart())
     }
     return (

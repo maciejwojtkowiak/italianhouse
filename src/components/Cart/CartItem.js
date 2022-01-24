@@ -11,10 +11,10 @@ const CartItem = (props) => {
     return (
         <div className={styles['cart-item']}>
             <p>{props.name}</p>
-            <p>{props.price}</p>
+            <p>{props.price}$</p>
             <p>{props.quantity}</p>
             <div className={styles.actions}>
-                <p>{props.totalPrice}</p>
+                <p>{props.totalPrice}$</p>
                 {!orderIsShown && !orderIsSent && <button onClick={deleteHandler}>&minus;</button>}
             </div>
         </div>

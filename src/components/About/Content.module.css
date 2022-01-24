@@ -1,16 +1,35 @@
 
 .tabContent {
-    display: grid;
-    place-items: center;
     color: white;
-    grid-row: 2/3;
+    grid-row: 1/2;
     font-size: 2rem;
     grid-column: 1 / span 3;
-    grid-template-rows: min-content max-content;
     padding: 10rem 30rem;
-    box-sizing: border-box;
 }
+@media only screen and (max-width: 80em) {
+    .tabContent {
+        font-size: 2.2rem;
+        padding: 3rem 5rem;
+        
+    }
+} 
 
-.tabContent:first-of-type {
-    margin-top: 10rem;
-}
+@media only screen and (max-width: 50em) {
+    .tabContent {
+        font-size: 2.6rem;
+        padding: 3rem 5rem;
+        
+    }
+} 
+
+
+@media only screen and (max-width: 37.5em) {
+    .tabContent {
+        padding: 0rem 3rem 5rem 3rem;
+        
+    }
+} 
+
+
+
+

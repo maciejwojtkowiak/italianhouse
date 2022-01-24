@@ -11,7 +11,7 @@ const Content = (props) => {
             
                 <div className={styles.tabContent}>
                     <h1>{props.header}</h1>
-                    <p>{props.content}</p>
+                    {props.content}
                 </div>
             </CSSTransition>
            

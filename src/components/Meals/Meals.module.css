@@ -1,13 +1,21 @@
 .meals {
+    min-height: 70vh;
     display: grid;
     place-items: center;
-    height: 80vh;
-    overflow-y: scroll;
     grid-template-columns: 1fr 1fr 1fr ;
     grid-auto-rows: 1fr 1fr 1fr;
     gap: 3rem;
     padding: 5rem;
 }
+
+@media only screen and (max-width: 80em) {
+    .meals {
+        grid-template-columns: 1fr;
+        
+    }
+} 
+
+
 
 .meal-item {
     height: 100%;
@@ -17,6 +25,7 @@
     flex-direction: column;
     
 }
+
 
 .meal-detail {
     display: grid;

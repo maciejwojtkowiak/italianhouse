@@ -4,7 +4,25 @@
     align-items: center;
     justify-content: space-between;
     padding: 2rem;
+    text-align: center;
 }
+
+@media only screen and (max-width: 37.5em) {
+    .navbar {
+        flex-direction: column;
+        padding: 2rem 
+    }
+} 
+
+.restaurantName {
+    color: white;
+    font-size: 6.5rem;
+    font-weight: 900;
+    letter-spacing: .6rem;
+ 
+ }
+
+
 
 .headerNavList {
     display: flex;
@@ -23,11 +41,17 @@
     cursor: pointer;
 }
 
-.restaurantName {
-   color: white;
-   font-size: 5rem;
-   font-weight: 900;
-   letter-spacing: .6rem;
+@media only screen and (max-width: 37.5em) {
+    .headerNavList {
+        margin: 0; 
+    }
 
-}
+    .headerNavList > li {
+        margin: 1.5rem;
+    }
+} 
+
+
+
+
 
