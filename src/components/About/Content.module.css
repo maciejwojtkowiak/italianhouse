@@ -6,6 +6,13 @@
     grid-column: 1 / span 3;
     padding: 10rem 30rem;
 }
+@media only screen and (max-width: 80em) {
+    .tabContent {
+        font-size: 2.2rem;
+        padding: 3rem 5rem;
+        
+    }
+} 
 
 @media only screen and (max-width: 50em) {
     .tabContent {

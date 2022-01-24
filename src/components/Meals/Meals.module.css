@@ -8,7 +8,7 @@
     padding: 5rem;
 }
 
-@media only screen and (max-width: 70em) {
+@media only screen and (max-width: 80em) {
     .meals {
         grid-template-columns: 1fr;
         

@@ -38,8 +38,13 @@
     padding: 0 15rem;
     font-size: 1.9rem;
 }
+@media only screen and (max-width: 80em) {
+    .left-side-description > p {
+      padding: 0 5rem;
+    }
+  } 
 
-@media only screen and (max-width: 50em) {
+@media only screen and (max-width: 80em) {
     .left-side-description > p  {
         padding: 0 5rem;
     }
@@ -74,6 +79,12 @@
         text-align: center;
     }
 } 
+
+@media only screen and (max-width: 80em) {
+    .heroImage {
+        width: 95%;
+    }
+  } 
 @media only screen and (max-width: 50em) {
     .heroImage {
         width: 80%;

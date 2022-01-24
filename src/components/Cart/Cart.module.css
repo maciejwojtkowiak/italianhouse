@@ -12,8 +12,15 @@
     z-index: 5;
 }
 
+@media only screen and (max-width: 95em) {
+    .cart {
+        width: 60vw;
+        
+    }
+} 
 
-@media only screen and (max-width: 50em) {
+
+@media only screen and (max-width: 65em) {
     .cart {
         grid-template-columns: 1fr;
         width: 90%;
