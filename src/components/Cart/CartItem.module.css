@@ -1,43 +1,39 @@
 .cart-item {
-    display: grid;
-    place-items: center;
-    width: 95%;
-    grid-template-columns: repeat(4, 25%);
+  display: grid;
+  place-items: center;
+  width: 95%;
+  grid-template-columns: repeat(4, 25%);
+  margin-top: 1rem;
 }
 
 .cart-item > p {
-    font-size: 2rem;
+  font-size: 2rem;
 }
 
 .actions {
-    display: grid;
-    width: 100%;
-    grid-template-columns: 100% min-content;
-    place-items: center;
-    font-size: 2rem;
+  display: grid;
+  width: 100%;
+  grid-template-columns: 100% min-content;
+  place-items: center;
+  font-size: 2rem;
 }
 
 .action > p {
-    margin-left: auto;
+  margin-left: auto;
 }
 
 .actions > button {
-    color: white;
-    background-color: red;
-    border: none;
-    font-weight: 900;
-    border-radius: 10rem;
-    padding: 0.2rem 0.8rem;
-    font-size: 1.5rem;
-   
-} 
+  color: white;
+  background-color: red;
+  border: none;
+  font-weight: 900;
+  border-radius: 10rem;
+  padding: 0.2rem 0.8rem;
+  font-size: 1.5rem;
+}
 
 @media only screen and (max-width: 37.5em) {
-    .actions > button {
-        margin-left: -1rem
-    }
-} 
-
-
-
-
+  .actions > button {
+    margin-left: -1rem;
+  }
+}
