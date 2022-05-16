@@ -1,119 +1,95 @@
 .heroContainer {
-    height: 90vh;
-    background-image: radial-gradient(rgb(248, 37, 37), rgb(226, 17, 51));
-    position: relative;
-    
+  min-height: 90vh;
+  background-image: radial-gradient(rgb(248, 37, 37), rgb(226, 17, 51));
+  position: relative;
 }
-
 
 .description {
-    width:100%;
-    height: 85%;
-    display: grid;
-    place-items: center;
-    grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr));
-    gap: 4rem;
-    color: white;
+  width: 100%;
+  height: 85%;
+  display: grid;
+  place-items: center;
+  grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr));
+  gap: 4rem;
+  color: white;
 }
 
-@media only screen and (max-width: 37.5em) {
-    .description {
-       grid-template-columns: 1fr;
-        
-    }
-} 
-
-
+@media only screen and (max-width: 50em) {
+  .description {
+    grid-template-columns: 1fr;
+  }
+}
 
 .left-side-description {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
 }
-
 
 .left-side-description > p {
-    padding: 0 15rem;
-    font-size: 1.9rem;
+  padding: 0 15rem;
+  font-size: 1.9rem;
 }
 @media only screen and (max-width: 80em) {
-    .left-side-description > p {
-      padding: 0 5rem;
-    }
-  } 
+  .left-side-description > p {
+    padding: 0 5rem;
+  }
+}
 
 @media only screen and (max-width: 80em) {
-    .left-side-description > p  {
-        padding: 0 5rem;
-    }
-} 
-
+  .left-side-description > p {
+    padding: 0 5rem;
+  }
+}
 
 @media only screen and (max-width: 37.5em) {
-    .left-side-description {
-       grid-template-columns: 1fr;
-    }
+  .left-side-description {
+    grid-template-columns: 1fr;
+  }
 
-    .left-side-description > p {
-        padding: 0 5rem;
-        font-size: 1.6rem;
-    }
-} 
-
-
-
-
-
+  .left-side-description > p {
+    padding: 0 5rem;
+    font-size: 1rem;
+  }
+}
 
 .description__header {
-    font-style: italic;
-    margin-bottom: 3rem;
-    letter-spacing: .5rem;
-    font-size: 4.5rem;
+  font-style: italic;
+  margin-bottom: 3rem;
+  letter-spacing: 0.5rem;
+  font-size: 4.5rem;
 }
 
 @media only screen and (max-width: 37.5em) {
-    .description__header {
-        text-align: center;
-    }
-} 
+  .description__header {
+    text-align: center;
+    font-size: 3rem;
+  }
+}
 
 @media only screen and (max-width: 80em) {
-    .heroImage {
-        width: 95%;
-    }
-  } 
-@media only screen and (max-width: 50em) {
-    .heroImage {
-        width: 80%;
-    }
-  } 
-
-
-@media only screen and (max-width: 37.5em) {
-    .heroImage {
-        display: none;
-    }
-} 
-
-
-
-
-.orderButton {
-    margin-top: 5rem;
-    padding: 2rem;
-    font-size: 2.8rem;
-    font-weight: 700;
-    border: none;
-    color: black;
-    background-color: white;
-    border-radius: 5rem;
-    display: inline-block;
-    
-    
+  .heroImage {
+    width: 60%;
+  }
 }
 
+@media only screen and (max-width: 50em) {
+  .heroImage {
+    display: none;
+  }
+}
 
-
+.orderButton {
+  margin-top: 5rem;
+  margin-bottom: 2rem;
+  padding: 2rem;
+  font-size: 2.8rem;
+  font-weight: 700;
+  border: none;
+  color: black;
+  background-color: white;
+  border-radius: 5rem;
+  display: inline-block;
+}

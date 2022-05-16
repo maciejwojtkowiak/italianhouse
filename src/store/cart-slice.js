@@ -1,102 +1,99 @@
-import {createSlice} from '@reduxjs/toolkit'
+import { createSlice } from "@reduxjs/toolkit";
 
 const INITIAL_STATE = {
-    items: [],
-    totalAmount: 0,
-    cartIsShown: false,
-    changed: false,
-    added: false,
-    orderIsSent: false,
-    orderIsShown: false,
-    fetchingCart: false,
-    cleared: false
-}
+  items: [],
+  totalAmount: 0,
+  cartIsShown: false,
+  changed: false,
+  added: false,
+  orderIsSent: false,
+  orderIsShown: false,
+  fetchingCart: false,
+  cleared: false,
+};
 
 const cartSlice = createSlice({
-    name: 'cart',
-    initialState: INITIAL_STATE,
-    reducers: {
-        replaceCart(state,action) {
-            state.items = action.payload
-        },
+  name: "cart",
+  initialState: INITIAL_STATE,
+  reducers: {
+    replaceCart(state, action) {
+      state.items = action.payload;
+    },
 
-        setFetchedTotalAmount(state,action) {
-            state.totalAmount = action.payload
-        },
+    setFetchedTotalAmount(state, action) {
+      state.totalAmount = action.payload;
+    },
 
-        // 'added' and 'cleared' properties are changed here
-        addItemToCart(state, action) {
-            state.added = true
-            const existingItem = state.items.find(existingItem => existingItem.id === action.payload.id)
-            if (!existingItem) {
-                state.items.push({
-                    id: action.payload.id,
-                    name: action.payload.name,
-                    price: action.payload.price,
-                    totalPrice: action.payload.price,
-                    quantity: action.payload.quantity
-                })
-            }
+    // 'added' and 'cleared' properties are changed here
+    addItemToCart(state, action) {
+      const existingItem = state.items.find(
+        (existingItem) => existingItem.id === action.payload.id
+      );
+      if (!existingItem) {
+        state.items.push({
+          id: action.payload.id,
+          name: action.payload.name,
+          price: action.payload.price,
+          totalPrice: action.payload.price,
+          quantity: action.payload.quantity,
+        });
+      }
 
-            if (existingItem) {
-                existingItem.quantity += 1
-                existingItem.totalPrice = existingItem.quantity * existingItem.price
-            }
+      if (existingItem) {
+        existingItem.quantity += 1;
+        existingItem.totalPrice = existingItem.quantity * existingItem.price;
+      }
 
-            ++state.totalAmount
-            state.changed = true
-            state.cleared = false
-            state.added = true
-            
-        },
+      ++state.totalAmount;
+      state.changed = true;
+      state.cleared = false;
+      state.added = true;
+    },
 
-        // 'added' and 'cleared' properties are changed here
-        removeItemFromCart(state, action) {
-            const itemToDeletion = state.items.find(item => item.id === action.payload)
-            if (itemToDeletion.quantity === 1) {
-                state.items = state.items.filter(item => item.id !== action.payload)
-            } else {
-                itemToDeletion.quantity--
-                itemToDeletion.totalPrice = [itemToDeletion.quantity * itemToDeletion.price]
-            }
+    // 'added' and 'cleared' properties are changed here
+    removeItemFromCart(state, action) {
+      const itemToDeletion = state.items.find(
+        (item) => item.id === action.payload
+      );
+      if (itemToDeletion.quantity === 1) {
+        state.items = state.items.filter((item) => item.id !== action.payload);
+      } else {
+        itemToDeletion.quantity--;
+        itemToDeletion.totalPrice = [
+          itemToDeletion.quantity * itemToDeletion.price,
+        ];
+      }
 
-            state.totalAmount--
-            state.changed = true
-            state.cleared = false
-            state.added = false
-            
-            
-        },
+      state.totalAmount--;
+      state.changed = true;
+      state.cleared = false;
+      state.added = false;
+    },
 
-        clearCart(state, action) {
-            state.items = []
-            state.totalAmount = 0
-            state.cleared = true
-            state.changed = true
-        },
+    clearCart(state, action) {
+      state.items = [];
+      state.totalAmount = 0;
+      state.cleared = true;
+      state.changed = true;
+    },
 
-        showCart(state) {
-            state.cartIsShown = !state.cartIsShown
+    showCart(state) {
+      state.cartIsShown = !state.cartIsShown;
+    },
 
-        },
+    orderIsSent(state, action) {
+      state.orderIsSent = action.payload;
+    },
 
-        orderIsSent(state, action) {
-            state.orderIsSent = action.payload
-        },
+    orderIsShown(state, action) {
+      state.orderIsShown = action.payload;
+    },
 
-        orderIsShown(state, action) {
-            state.orderIsShown = action.payload
-        },
+    isCartBeingFetched(state, action) {
+      state.fetchingCart = action.payload;
+    },
+  },
+});
 
-        isCartBeingFetched(state, action) {
-            state.fetchingCart = action.payload
-        }
-
-
-       
-    }
-})
-
-
-export const cartActions = cartSlice.actions
-export default cartSlice
+export const cartActions = cartSlice.actions;
+export default cartSlice;
