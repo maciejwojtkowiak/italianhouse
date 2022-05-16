@@ -1,24 +1,17 @@
 .tabs {
-    width: 100%;
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
 }
 
-@media only screen and (max-width: 50em) {
-    .tabs {
-        grid-template-columns: 1fr;   
-    }
-} 
-
-
+@media only screen and (max-width: 80em) {
+  .tabs {
+    grid-template-columns: 1fr;
+  }
+}
 
 .contentContainer {
-    display: grid;
-    place-items: center;
-    grid-template-columns: 1fr;
-
+  display: grid;
+  place-items: center;
+  grid-template-columns: 1fr;
 }
-
-
-
-

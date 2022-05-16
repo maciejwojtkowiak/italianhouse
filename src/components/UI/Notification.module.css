@@ -1,48 +1,36 @@
 .notification {
-    position: fixed;
-    top: 0;
-    width: 100%;
-    z-index: 10;
-    text-align: center;
-    color: #fff;
-    font-size: 3rem;
-    transition: all .2s;
-    
-    
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 10;
+  text-align: center;
+  color: #fff;
+  font-size: 3rem;
+  transition: all 0.2s;
 }
 
 .notification-added {
-    background-image: radial-gradient(rgb(62, 207, 62), rgb(62, 190, 62));
-   
-  
-    
+  background-image: radial-gradient(rgb(62, 207, 62), rgb(62, 190, 62));
 }
 
 .notification-removed {
-    background-image: radial-gradient(rgb(207, 62, 62), rgb(187, 32, 4));
-    
-   
+  background-image: radial-gradient(rgb(207, 62, 62), rgb(187, 32, 4));
 }
 
 .notification-fetch {
-    background-image: radial-gradient(rgb(89, 0, 233), rgb(25, 0, 252));
-    
-    
+  background-image: radial-gradient(rgb(89, 0, 233), rgb(25, 0, 252));
 }
 
 .notification-cleared {
-    background-image: radial-gradient(rgb(89, 0, 233), rgb(25, 0, 252));
-    
-    
+  background-image: radial-gradient(rgb(89, 0, 233), rgb(25, 0, 252));
 }
 
-  .div {
-      height: 50vh;
-      width: 30vw;
-      background-color: white;
-  }
+.div {
+  height: 50vh;
+  width: 30vw;
+  background-color: white;
+}
 
-  .fade {
-      font-size: 20rem;
-  }
-
+.fade {
+  font-size: 20rem;
+}

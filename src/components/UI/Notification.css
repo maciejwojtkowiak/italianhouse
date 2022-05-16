@@ -1,32 +1,21 @@
-
-
 .notification-enter {
   transition: opacity 500ms;
   opacity: 0;
-    
-  }
-  .notification-enter-active {
-    transition: opacity 500ms;
-    opacity: 1;
-   
-   
-  }
-  .notification-exit {
-    transition: opacity 500ms;
-    opacity: 1;
-   
-   
-  }
-  .notification-exit-active {
-    transition: opacity 500ms;
-    opacity: 0;
-  
-  }
+}
+.notification-enter-active {
+  transition: opacity 500ms;
+  opacity: 1;
+}
+.notification-exit {
+  transition: opacity 500ms;
+  opacity: 1;
+}
+.notification-exit-active {
+  transition: opacity 500ms;
+  opacity: 0;
+}
 
-  .notification-exit-done {
-    transition: opacity 500ms;
-    opacity: 0;
-    
-    
-  
-  }
+.notification-exit-done {
+  transition: opacity 500ms;
+  opacity: 0;
+}

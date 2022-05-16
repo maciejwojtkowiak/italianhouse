@@ -1,11 +1,13 @@
 .button {
-    padding: 1rem 2rem;
-    font-size: 2.1rem;
-    border: none;
-    background-color: rgb(229, 233, 229);
+  padding: 1.5rem 3rem;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+  font-size: 2.1rem;
+  border: none;
+  background-color: rgb(229, 233, 229);
 }
 
 .button:active {
-    transform: translateY(-8px);
-    transition: all .2s;
+  transform: translateY(-8px);
+  transition: all 0.2s;
 }
